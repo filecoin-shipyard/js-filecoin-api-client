@@ -18,7 +18,7 @@ test('should get blockchain', async t => {
   t.deepEqual(blocks, expectedBlocks)
 })
 
-test('should convert parent CIDs', async t => {
+test('should deserialize parent CIDs', async t => {
   const expectedBlocks = [
     [{
       miner: 'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52',
@@ -44,7 +44,7 @@ test('should convert parent CIDs', async t => {
   })
 })
 
-test('should convert state root CID', async t => {
+test('should deserialize state root CID', async t => {
   const expectedBlocks = [
     [{
       miner: 'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52',

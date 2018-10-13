@@ -30,22 +30,31 @@ for await (const actor of fc.actor.ls())
 /*
 { actorType: 'MinerActor',
   address: 'fcqpdd3end3j5hhu7lacxg4vnluu9rxfd3nteezw6',
-  code: { '/': 'zb2rhe71ud5XjA2RaFk2esBaQcD51EjKRLFP2yrB7Yq2WoiZ3' },
+  code:
+   CID {
+     codec: 'raw',
+     version: 1,
+     multihash:
+      <Buffer 12 20 6e db 35 14 a9 48 c5 1e 7e 0d cc 3f 86 bb 15 42 43 fa b4 54 86 f9 6d dc be bd d7 57 e6 37 35 26> },
   nonce: 0,
   balance: '100',
   exports:
-   { addAsk: [Object],
-     commitSector: [Object],
-     getKey: [Object],
-     getLastUsedSectorID: [Object],
-     getOwner: [Object],
-     getPeerID: [Object],
-     getPower: [Object],
-     getProvingPeriodStart: [Object],
-     submitPoSt: [Object],
-     updatePeerID: [Object] },
+   { addAsk: { Params: [Array], Return: [Array] },
+     commitSector: { Params: [Array], Return: [] },
+     getKey: { Params: [], Return: [Array] },
+     getLastUsedSectorID: { Params: [], Return: [Array] },
+     getOwner: { Params: [], Return: [Array] },
+     getPeerID: { Params: [], Return: [Array] },
+     getPower: { Params: [], Return: [Array] },
+     getProvingPeriodStart: { Params: [], Return: [Array] },
+     submitPoSt: { Params: [Array], Return: [] },
+     updatePeerID: { Params: [Array], Return: [] } },
   head:
-   { '/': 'zDPWYqFCz4WFFjPuyyLRArmUhR4n1TibJTDoQLbivKaNg4JdDXCA' } }
+   CID {
+     codec: 'dag-cbor',
+     version: 1,
+     multihash:
+      <Buffer a0 e4 02 20 7c 25 c7 49 04 93 28 60 45 69 05 30 1f cd 10 ba d8 5d b6 85 b9 e1 37 7f 6e c5 2a 70 b8 cf 67 bf> } }
 */
 ```
 
