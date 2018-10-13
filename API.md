@@ -115,11 +115,11 @@ const addr = await fc.address.new()
 console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
 ```
 
-## `boostrap.ls`
+## `bootstrap.ls`
 
 > TODO describe bootstrap.ls
 
-### `boostrap.ls()`
+### `bootstrap.ls()`
 
 #### Returns
 
