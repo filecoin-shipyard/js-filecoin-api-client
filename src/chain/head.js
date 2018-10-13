@@ -1,12 +1,13 @@
 const toUri = require('multiaddr-to-uri')
+const CID = require('cids')
 const { ok } = require('../fetch')
 
 module.exports = (fetch, config) => {
   return async options => {
     options = options || {}
-    const url = `${toUri(config.apiAddr)}/api/address/new`
+    const url = `${toUri(config.apiAddr)}/api/chain/head`
     const res = await ok(fetch(url, { signal: options.signal }))
-    const { Address } = await res.json()
-    return Address
+    const heads = await res.json()
+    return heads.map(h => new CID(h['/']))
   }
 }

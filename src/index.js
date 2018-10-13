@@ -18,6 +18,9 @@ module.exports = (fetch, config) => {
       ls: require('./address/ls')(fetch, config),
       new: require('./address/new')(fetch, config)
     },
+    chain: {
+      head: require('./chain/head')(fetch, config)
+    },
     wallet: {
       balance: require('./wallet/balance')(fetch, config)
     }

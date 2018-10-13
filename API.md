@@ -4,6 +4,7 @@
 * [address.lookup](#addresslookup)
 * [address.ls](#addressls)
 * [address.new](#addressnew)
+* [chain.head](#chainhead)
 * [wallet.balance](#walletbalance)
 * TODO: more to come in upcoming releases!
 
@@ -101,6 +102,26 @@ for await (const addr of fc.address.ls())
 ```js
 const addr = await fc.address.new()
 console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
+```
+
+## `chain.head`
+
+> Get heaviest tipset CIDs
+
+### `chain.head()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Error, CID[]>` | Array of [CID](https://github.com/ipld/js-cid/) objects |
+
+#### Example
+
+```js
+const heads = await fc.chain.head()
+console.log(heads.map(cid => cid.toString()))
+// [ 'zDPWYqFCrhCRdGa1Z84DBpSQ5rrHphwjs7qHe5uS2LFurdnE6vvF' ]
 ```
 
 ## `wallet.balance`

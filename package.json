@@ -14,6 +14,7 @@
   "author": "Alan Shaw",
   "license": "",
   "dependencies": {
+    "cids": "^0.5.5",
     "explain-error": "^1.0.4",
     "multiaddr-to-uri": "^4.0.0",
     "node-fetch": "^2.2.0"
