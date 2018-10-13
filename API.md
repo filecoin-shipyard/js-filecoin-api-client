@@ -4,6 +4,7 @@
 * [address.lookup](#addresslookup)
 * [address.ls](#addressls)
 * [address.new](#addressnew)
+* [bootstrap.ls](#bootstrapls)
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
 * [wallet.balance](#walletbalance)
@@ -112,6 +113,32 @@ for await (const addr of fc.address.ls())
 ```js
 const addr = await fc.address.new()
 console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
+```
+
+## `boostrap.ls`
+
+> TODO describe bootstrap.ls
+
+### `boostrap.ls()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Error, String[]>` | List of bootstrap multiaddrs |
+
+#### Example
+
+```js
+const addrs = await fc.boostrap.ls()
+console.log(addrs)
+
+/*
+[ '/dns4/test.kittyhawk.wtf/tcp/9001/ipfs/QmXq6XEYeEmUzBFuuKbVEGgxEpVD4xbSkG2Rhek6zkFMp4',
+  '/dns4/test.kittyhawk.wtf/tcp/9002/ipfs/QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY',
+  '/dns4/test.kittyhawk.wtf/tcp/9003/ipfs/QmZGDLdQLUTi7uYTNavKwCd7SBc5KMfxzWxAyvqRQvwuiV',
+  '/dns4/test.kittyhawk.wtf/tcp/9004/ipfs/QmZRnwmCjyNHgeNDiyT8mXRtGhP6uSzgHtrozc42crmVbg' ]
+*/
 ```
 
 ## `chain.head`

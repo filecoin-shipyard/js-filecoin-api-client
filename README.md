@@ -41,6 +41,7 @@ const fc = Filecoin({
 * [address.lookup](API.md#addresslookup)
 * [address.ls](API.md#addressls)
 * [address.new](API.md#addressnew)
+* [bootstrap.ls](API.md#bootstrapls)
 * [chain.head](API.md#chainhead)
 * [chain.ls](API.md#chainls)
 * [wallet.balance](API.md#walletbalance)

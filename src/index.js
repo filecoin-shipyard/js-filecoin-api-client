@@ -13,6 +13,9 @@ module.exports = (fetch, config) => {
     actor: {
       ls: require('./actor/ls')(fetch, config)
     },
+    bootstrap: {
+      ls: require('./bootstrap/ls')(fetch, config)
+    },
     address: {
       lookup: require('./address/lookup')(fetch, config),
       ls: require('./address/ls')(fetch, config),
