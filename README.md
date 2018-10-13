@@ -50,4 +50,4 @@ Feel free to dive in! [Open an issue](https://github.com/filecoin-project/js-fil
 
 ## License
 
-[MIT](LICENSE) © Protocol Labs
+© Protocol Labs

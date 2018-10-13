@@ -12,7 +12,7 @@
     "coverage": "nyc --reporter=lcov --reporter=text ava --verbose"
   },
   "author": "Alan Shaw",
-  "license": "MIT",
+  "license": "",
   "dependencies": {
     "explain-error": "^1.0.4",
     "multiaddr-to-uri": "^4.0.0",
