@@ -5,6 +5,7 @@
 * [address.ls](#addressls)
 * [address.new](#addressnew)
 * [chain.head](#chainhead)
+* [chain.ls](#chainls)
 * [wallet.balance](#walletbalance)
 * TODO: more to come in upcoming releases!
 
@@ -119,9 +120,46 @@ console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
 #### Example
 
 ```js
-const heads = await fc.chain.head()
-console.log(heads.map(cid => cid.toString()))
+const block = await fc.chain.head()
+console.log(block.map(cid => cid.toString()))
 // [ 'zDPWYqFCrhCRdGa1Z84DBpSQ5rrHphwjs7qHe5uS2LFurdnE6vvF' ]
+```
+
+## `chain.ls`
+
+> Dump full block chain
+
+### `chain.ls()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Array<???>>` | Iterable of blocks in the blockchain |
+
+#### Example
+
+```js
+for await (const block of fc.chain.ls())
+  console.log(block)
+
+/*
+[ { miner: 'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52',
+    ticket: 'BNdhwXA6ty/KdYJ3YY/gZ1CexKRXsDYOpBq0wbK+/kA=',
+    parents: [ [CID] ],
+    parentWeightNumerator: 'y8q87bOQCQ==',
+    parentWeightDenominator: 'xpSakwY=',
+    height: '6hU=',
+    nonce: 'AA==',
+    messages: [ [Object] ],
+    stateRoot:
+     CID {
+       codec: 'dag-cbor',
+       version: 1,
+       multihash:
+        <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
+    messageReceipts: [ [Object] ] } ]
+*/
 ```
 
 ## `wallet.balance`

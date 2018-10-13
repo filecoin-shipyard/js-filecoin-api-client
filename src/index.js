@@ -1,5 +1,5 @@
 module.exports = (fetch, config) => {
-  if (!config) {
+  if (typeof fetch !== 'function') {
     config = fetch
     fetch = null
   }
@@ -19,7 +19,8 @@ module.exports = (fetch, config) => {
       new: require('./address/new')(fetch, config)
     },
     chain: {
-      head: require('./chain/head')(fetch, config)
+      head: require('./chain/head')(fetch, config),
+      ls: require('./chain/ls')(fetch, config)
     },
     wallet: {
       balance: require('./wallet/balance')(fetch, config)

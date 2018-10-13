@@ -12,7 +12,7 @@ test('should list miner addresses', async t => {
     ok: true,
     text: () => expectedAddrs.map(a => `{"Address":"${a}"}`).join('\n')
   })
-  const fc = Filecoin(fetch, { apiAddr: '/ip4/127.0.0.1/tcp/3453/http' })
+  const fc = Filecoin(fetch)
 
   const addrs = []
   for await (const addr of fc.address.ls()) addrs.push(addr)
@@ -22,7 +22,7 @@ test('should list miner addresses', async t => {
 test('should throw on request error', async t => {
   const message = `BOOM${Date.now()}`
   const fetch = () => ({ ok: false, json: () => ({ message }) })
-  const fc = Filecoin(fetch, { apiAddr: '/ip4/127.0.0.1/tcp/3453/http' })
+  const fc = Filecoin(fetch)
 
   try {
     for await (const _ of fc.address.ls()) { // eslint-disable-line

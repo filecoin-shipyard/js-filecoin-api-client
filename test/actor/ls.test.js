@@ -3,7 +3,7 @@ const Filecoin = require('../../src')
 
 test('should list actors', async t => {
   const fetch = () => ({ ok: true, text: () => '{}\n{}' })
-  const fc = Filecoin(fetch, { apiAddr: '/ip4/127.0.0.1/tcp/3453/http' })
+  const fc = Filecoin(fetch)
 
   for await (const actor of fc.actor.ls()) {
     t.truthy(actor)
@@ -12,7 +12,7 @@ test('should list actors', async t => {
 
 test('should throw on invalid actor', async t => {
   const fetch = () => ({ ok: true, text: () => '{}\n{' })
-  const fc = Filecoin(fetch, { apiAddr: '/ip4/127.0.0.1/tcp/3453/http' })
+  const fc = Filecoin(fetch)
 
   try {
     for await (const actor of fc.actor.ls()) {
@@ -27,7 +27,7 @@ test('should throw on invalid actor', async t => {
 test('should throw on request error', async t => {
   const message = `BOOM${Date.now()}`
   const fetch = () => ({ ok: false, json: () => ({ message }) })
-  const fc = Filecoin(fetch, { apiAddr: '/ip4/127.0.0.1/tcp/3453/http' })
+  const fc = Filecoin(fetch)
 
   try {
     for await (const _ of fc.actor.ls()) { // eslint-disable-line
