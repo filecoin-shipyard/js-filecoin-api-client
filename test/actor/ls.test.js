@@ -1,9 +1,10 @@
 const test = require('ava')
 const CID = require('cids')
 const Filecoin = require('../../src')
+const { toAsyncIterator } = require('../helpers/iterator')
 
 test('should list actors', async t => {
-  const fetch = () => ({ ok: true, text: () => '{}\n{}' })
+  const fetch = () => ({ ok: true, body: toAsyncIterator(['{}\n{}']) })
   const fc = Filecoin(fetch)
 
   for await (const actor of fc.actor.ls()) {
@@ -12,7 +13,7 @@ test('should list actors', async t => {
 })
 
 test('should throw on invalid actor', async t => {
-  const fetch = () => ({ ok: true, text: () => '{}\n{' })
+  const fetch = () => ({ ok: true, body: toAsyncIterator(['{}\n{']) })
   const fc = Filecoin(fetch)
 
   try {
@@ -31,7 +32,7 @@ test('should deserialize actor head CID', async t => {
   }]
   const fetch = () => ({
     ok: true,
-    text: () => expectedActors.map(a => JSON.stringify(a)).join('\n')
+    body: toAsyncIterator([expectedActors.map(a => JSON.stringify(a)).join('\n')])
   })
   const fc = Filecoin(fetch)
 
@@ -50,7 +51,7 @@ test('should deserialize actor code CID', async t => {
   }]
   const fetch = () => ({
     ok: true,
-    text: () => expectedActors.map(a => JSON.stringify(a)).join('\n')
+    body: toAsyncIterator([expectedActors.map(a => JSON.stringify(a)).join('\n')])
   })
   const fc = Filecoin(fetch)
 

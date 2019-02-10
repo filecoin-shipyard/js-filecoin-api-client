@@ -1,19 +1,6 @@
 const test = require('ava')
 const ndjson = require('../src/ndjson')
-
-function toAsyncIterator (array) {
-  return {
-    [Symbol.asyncIterator] () {
-      return this
-    },
-    async next () {
-      await new Promise(resolve => setTimeout(resolve))
-      return array.length
-        ? { done: false, value: array.shift() }
-        : { done: true }
-    }
-  }
-}
+const { toAsyncIterator } = require('./helpers/iterator')
 
 test('should split 1 item from 1 chunk', async t => {
   const source = toAsyncIterator(['{ "id": 1 }\n'])
