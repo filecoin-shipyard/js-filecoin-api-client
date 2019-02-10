@@ -8,6 +8,7 @@
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
 * [version](#version)
+* [wallet.addrs.ls](API.md#walletaddrsls)
 * [wallet.balance](#walletbalance)
 * TODO: more to come in upcoming releases!
 
@@ -219,6 +220,29 @@ console.log(version)
 
 /*
 { commit: '4e75ee9b601525c45eb255d80ccb73de35102c6d' }
+*/
+```
+
+## `wallet.addrs.ls`
+
+> Get the wallet address(es)
+
+### `wallet.addrs.ls()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | TODO describe return value |
+
+#### Example
+
+```js
+const res = await fc.wallet.addrs.ls()
+console.log(res)
+
+/*
+{ addresses: ['fcqu4uhfnuvwu4yf647lgatjftht5pyn44yxxfc5k'] }
 */
 ```
 
