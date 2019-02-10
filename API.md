@@ -7,6 +7,7 @@
 * [bootstrap.ls](#bootstrapls)
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
+* [version](#version)
 * [wallet.balance](#walletbalance)
 * TODO: more to come in upcoming releases!
 
@@ -195,6 +196,29 @@ for await (const block of fc.chain.ls())
        multihash:
         <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
     messageReceipts: [ [Object] ] } ]
+*/
+```
+
+## `version`
+
+> Get the version of the Filecoin node
+
+### `version()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | TODO describe return value |
+
+#### Example
+
+```js
+const version = await fc.version()
+console.log(version)
+
+/*
+{ commit: '4e75ee9b601525c45eb255d80ccb73de35102c6d' }
 */
 ```
 

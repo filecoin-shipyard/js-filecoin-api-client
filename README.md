@@ -44,6 +44,7 @@ const fc = Filecoin({
 * [bootstrap.ls](API.md#bootstrapls)
 * [chain.head](API.md#chainhead)
 * [chain.ls](API.md#chainls)
+* [version](API.md#version)
 * [wallet.balance](API.md#walletbalance)
 * TODO: more to come in upcoming releases!
 
