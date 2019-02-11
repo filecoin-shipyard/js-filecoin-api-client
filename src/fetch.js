@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 const explain = require('explain-error')
 
 if (typeof window !== 'undefined' || typeof self !== 'undefined') {
