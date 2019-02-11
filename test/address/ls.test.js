@@ -10,13 +10,12 @@ test('should list miner addresses', async t => {
   ]
   const fetch = () => ({
     ok: true,
-    text: () => expectedAddrs.map(a => `{"Address":"${a}"}`).join('\n')
+    json: () => ({ Addresses: expectedAddrs })
   })
   const fc = Filecoin(fetch)
 
-  const addrs = []
-  for await (const addr of fc.address.ls()) addrs.push(addr)
-  t.deepEqual(addrs, expectedAddrs)
+  const { addresses } = await fc.address.ls()
+  t.deepEqual(addresses, expectedAddrs)
 })
 
 test('should throw on request error', async t => {
@@ -25,9 +24,7 @@ test('should throw on request error', async t => {
   const fc = Filecoin(fetch)
 
   try {
-    for await (const _ of fc.address.ls()) { // eslint-disable-line
-      t.fail()
-    }
+    await fc.address.ls()
   } catch (err) {
     return t.is(err.message, message)
   }

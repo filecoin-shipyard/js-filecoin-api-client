@@ -81,7 +81,7 @@ for await (const actor of fc.actor.ls())
 
 ## `address.ls`
 
-> TODO describe address.ls
+> List miner address(es)
 
 ### `address.ls()`
 
@@ -89,13 +89,13 @@ for await (const actor of fc.actor.ls())
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<String>` | Iterable of addresses |
+| `Promise<Object>` | Miner addresses |
 
 #### Example
 
 ```js
-for await (const addr of fc.address.ls())
-  console.log(addr) // fcqyz3pgq7qpg0nekps597zth57x7xmh4sad7euk0
+const { addresses } = await fc.address.ls()
+console.log(addresses) // [fcqyz3pgq7qpg0nekps597zth57x7xmh4sad7euk0]
 ```
 
 ## `address.new`
