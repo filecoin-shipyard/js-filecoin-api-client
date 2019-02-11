@@ -11,26 +11,26 @@ module.exports = (fetch, config) => {
 
   return {
     actor: {
-      ls: require('./actor/ls')(fetch, config)
+      ls: require('./cmd/actor/ls')(fetch, config)
     },
     bootstrap: {
-      ls: require('./bootstrap/ls')(fetch, config)
+      ls: require('./cmd/bootstrap/ls')(fetch, config)
     },
     address: {
-      lookup: require('./address/lookup')(fetch, config),
-      ls: require('./address/ls')(fetch, config),
-      new: require('./address/new')(fetch, config)
+      lookup: require('./cmd/address/lookup')(fetch, config),
+      ls: require('./cmd/address/ls')(fetch, config),
+      new: require('./cmd/address/new')(fetch, config)
     },
     chain: {
-      head: require('./chain/head')(fetch, config),
-      ls: require('./chain/ls')(fetch, config)
+      head: require('./cmd/chain/head')(fetch, config),
+      ls: require('./cmd/chain/ls')(fetch, config)
     },
-    version: require('./version')(fetch, config),
+    version: require('./cmd/version')(fetch, config),
     wallet: {
       addrs: {
-        ls: require('./wallet/addrs/ls')(fetch, config)
+        ls: require('./cmd/wallet/addrs/ls')(fetch, config)
       },
-      balance: require('./wallet/balance')(fetch, config)
+      balance: require('./cmd/wallet/balance')(fetch, config)
     }
   }
 }
