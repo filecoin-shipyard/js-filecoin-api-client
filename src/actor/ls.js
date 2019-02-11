@@ -1,20 +1,19 @@
 const toUri = require('multiaddr-to-uri')
 const CID = require('cids')
 const explain = require('explain-error')
-const { ok } = require('../fetch')
+const { ok, toIterable } = require('../fetch')
+const ndjson = require('../ndjson')
 
 module.exports = (fetch, config) => {
   return () => ({
     [Symbol.asyncIterator] (options) {
       return (async function * () {
         options = options || {}
+
         const url = toUri(config.apiAddr) + '/api/actor/ls'
         const res = await ok(fetch(url, { signal: options.signal }))
-        const data = await res.text()
-        const lines = data.split('\n').filter(Boolean)
-        for (const line of lines) {
-          const actor = JSON.parse(line)
 
+        for await (const actor of ndjson(toIterable(res.body))) {
           if (actor.code) {
             try {
               actor.code = new CID(actor.code['/'])

@@ -1,6 +1,7 @@
 const test = require('ava')
 const CID = require('cids')
 const Filecoin = require('../../src')
+const { toAsyncIterator } = require('../helpers/iterator')
 
 test('should get blockchain', async t => {
   const expectedBlocks = [
@@ -9,7 +10,7 @@ test('should get blockchain', async t => {
   ]
   const fetch = () => ({
     ok: true,
-    text: () => expectedBlocks.map(b => JSON.stringify(b)).join('\n')
+    body: toAsyncIterator([expectedBlocks.map(b => JSON.stringify(b)).join('\n')])
   })
   const fc = Filecoin(fetch)
 
@@ -27,7 +28,7 @@ test('should deserialize parent CIDs', async t => {
   ]
   const fetch = () => ({
     ok: true,
-    text: () => expectedBlocks.map(b => JSON.stringify(b)).join('\n')
+    body: toAsyncIterator([expectedBlocks.map(b => JSON.stringify(b)).join('\n')])
   })
   const fc = Filecoin(fetch)
 
@@ -53,7 +54,7 @@ test('should deserialize state root CID', async t => {
   ]
   const fetch = () => ({
     ok: true,
-    text: () => expectedBlocks.map(b => JSON.stringify(b)).join('\n')
+    body: toAsyncIterator([expectedBlocks.map(b => JSON.stringify(b)).join('\n')])
   })
   const fc = Filecoin(fetch)
 

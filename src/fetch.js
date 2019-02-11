@@ -29,3 +29,27 @@ exports.ok = async res => {
 
   return res
 }
+
+exports.toIterable = body => {
+  if (body[Symbol.asyncIterator]) {
+    return body[Symbol.asyncIterator]()
+  }
+
+  if (body.getReader) {
+    return (async function * () {
+      const reader = body.getReader()
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) return
+          yield value
+        }
+      } finally {
+        reader.releaseLock()
+      }
+    })()
+  }
+
+  throw new Error('unknown stream')
+}
