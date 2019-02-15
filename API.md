@@ -23,7 +23,7 @@
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Actor>` | TODO describe return value |
+| `AsyncIterable<Object>` | TODO describe return value |
 
 #### Example
 
@@ -32,6 +32,7 @@ for await (const actor of fc.actor.ls())
   console.log(actor)
 
 /*
+After first iteration:
 { actorType: 'MinerActor',
   address: 'fcqpdd3end3j5hhu7lacxg4vnluu9rxfd3nteezw6',
   code:
@@ -78,7 +79,7 @@ for await (const actor of fc.actor.ls())
 
 | Type | Description |
 |------|-------------|
-| `Promise<Error, String>` | Peer ID for address |
+| `Promise<String>` | Peer ID for address |
 
 ## `address.ls`
 
@@ -90,12 +91,12 @@ for await (const actor of fc.actor.ls())
 
 | Type | Description |
 |------|-------------|
-| `Promise<Object>` | Miner addresses |
+| `Promise<String[]>` | Miner addresses |
 
 #### Example
 
 ```js
-const { addresses } = await fc.address.ls()
+const addresses = await fc.address.ls()
 console.log(addresses) // [fcqyz3pgq7qpg0nekps597zth57x7xmh4sad7euk0]
 ```
 
@@ -109,7 +110,7 @@ console.log(addresses) // [fcqyz3pgq7qpg0nekps597zth57x7xmh4sad7euk0]
 
 | Type | Description |
 |------|-------------|
-| `Promise<Error, String>` | A newly created address |
+| `Promise<String>` | A newly created address |
 
 #### Example
 
@@ -128,13 +129,13 @@ console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
 
 | Type | Description |
 |------|-------------|
-| `Promise<Error, String[]>` | List of bootstrap multiaddrs |
+| `Promise<Multiaddr[]>` | List of bootstrap [multiaddrs](https://github.com/multiformats/js-multiaddr) |
 
 #### Example
 
 ```js
 const addrs = await fc.boostrap.ls()
-console.log(addrs)
+console.log(addrs.map(a => a.toString()))
 
 /*
 [ '/dns4/test.kittyhawk.wtf/tcp/9001/ipfs/QmXq6XEYeEmUzBFuuKbVEGgxEpVD4xbSkG2Rhek6zkFMp4',
@@ -154,7 +155,7 @@ console.log(addrs)
 
 | Type | Description |
 |------|-------------|
-| `Promise<Error, CID[]>` | Array of [CID](https://github.com/ipld/js-cid/) objects |
+| `Promise<CID[]>` | Array of [CID](https://github.com/ipld/js-cid/) objects |
 
 #### Example
 
@@ -174,7 +175,7 @@ console.log(block.map(cid => cid.toString()))
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Array<???>>` | Iterable of blocks in the blockchain |
+| `AsyncIterable<Object[]>` | Iterable of blocks in the blockchain |
 
 #### Example
 
@@ -183,6 +184,7 @@ for await (const block of fc.chain.ls())
   console.log(block)
 
 /*
+After first iteration:
 [ { miner: 'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52',
     ticket: 'BNdhwXA6ty/KdYJ3YY/gZ1CexKRXsDYOpBq0wbK+/kA=',
     parents: [ [CID] ],
@@ -211,13 +213,13 @@ for await (const block of fc.chain.ls())
 
 | Type | Description |
 |------|-------------|
-| `Promise<{ id<CID>, addresses<String[]> }>` | TODO describe return value |
+| `Promise<{ id<CID>, addresses<Multiaddr[]> }>` | TODO describe return value |
 
 #### Example
 
 ```js
 const { id, addresses } = await fc.id()
-console.log({ id: id.toStrng(), addresses })
+console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
 
 /*
 { id: 'QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
@@ -260,16 +262,16 @@ console.log(version)
 
 | Type | Description |
 |------|-------------|
-| `Promise<Object>` | TODO describe return value |
+| `Promise<String[]>` | TODO describe return value |
 
 #### Example
 
 ```js
-const res = await fc.wallet.addrs.ls()
-console.log(res)
+const addresses = await fc.wallet.addrs.ls()
+console.log(addresses)
 
 /*
-{ addresses: ['fcqu4uhfnuvwu4yf647lgatjftht5pyn44yxxfc5k'] }
+['fcqu4uhfnuvwu4yf647lgatjftht5pyn44yxxfc5k']
 */
 ```
 
@@ -289,7 +291,7 @@ console.log(res)
 
 | Type | Description |
 |------|-------------|
-| `Promise<Error, String>` | Balance of the wallet |
+| `Promise<String>` | Balance of the wallet |
 
 #### Example
 

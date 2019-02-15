@@ -18,5 +18,5 @@ test('should get id', async t => {
   t.true(CID.isCID(res.id))
   t.is(res.id.toString(), jsonData.ID)
   t.true(Array.isArray(res.addresses))
-  t.deepEqual(res.addresses, jsonData.Addresses)
+  t.deepEqual(res.addresses.map(a => a.toString()), jsonData.Addresses)
 })

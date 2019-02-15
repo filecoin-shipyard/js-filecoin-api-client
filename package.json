@@ -11,7 +11,8 @@
     "test": "npm run test:unit",
     "test:unit": "ava --verbose 'test/unit/**/*.js'",
     "test:e2e": "node test/e2e/_warn.js && ava --verbose 'test/e2e/**/*.js'",
-    "coverage": "nyc --reporter=lcov --reporter=text ava --verbose"
+    "coverage": "nyc --reporter=lcov --reporter=text ava --verbose 'test/unit/**/*.js'",
+    "lint": "standard"
   },
   "author": "Alan Shaw",
   "license": "",
@@ -19,6 +20,7 @@
     "cids": "^0.5.7",
     "explain-error": "^1.0.4",
     "iterable-ndjson": "^1.0.0",
+    "multiaddr": "^6.0.4",
     "multiaddr-to-uri": "^4.0.1",
     "node-fetch": "^2.3.0",
     "string_decoder": "^1.2.0"

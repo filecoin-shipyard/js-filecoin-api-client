@@ -14,7 +14,7 @@ test('should list miner addresses', async t => {
   })
   const fc = Filecoin(fetch)
 
-  const { addresses } = await fc.address.ls()
+  const addresses = await fc.address.ls()
   t.deepEqual(addresses, expectedAddrs)
 })
 

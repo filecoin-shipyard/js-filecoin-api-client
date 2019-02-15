@@ -12,7 +12,7 @@ test('should list bootstrap node addresses', async t => {
   const fc = Filecoin(fetch)
 
   const addrs = await fc.bootstrap.ls()
-  t.is(addrs, expectedAddrs)
+  t.deepEqual(addrs.map(a => a.toString()), expectedAddrs)
 })
 
 test('should throw on request error', async t => {

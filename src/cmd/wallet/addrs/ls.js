@@ -7,6 +7,6 @@ module.exports = (fetch, config) => {
     const url = `${toUri(config.apiAddr)}/api/wallet/addrs/ls`
     const res = await ok(fetch(url, { signal: options.signal }))
     const data = await res.json()
-    return { addresses: data.Addresses }
+    return data.Addresses
   }
 }

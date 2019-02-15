@@ -4,7 +4,7 @@ const Filecoin = require('../helpers/filecoin')
 test('should list actors', async t => {
   const fc = Filecoin()
 
-  for await (const actor of fc.actor.ls()) {
-    t.truthy(actor)
-  }
+  let actor
+  for await (actor of fc.actor.ls()) break
+  t.truthy(actor)
 })

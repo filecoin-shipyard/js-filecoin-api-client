@@ -1,4 +1,5 @@
 const test = require('ava')
+const Multiaddr = require('multiaddr')
 const Filecoin = require('../helpers/filecoin')
 
 test('should list bootstrap node addresses', async t => {
@@ -6,5 +7,5 @@ test('should list bootstrap node addresses', async t => {
 
   const addrs = await fc.bootstrap.ls()
   t.true(Array.isArray(addrs))
-  addrs.forEach(a => t.true(typeof a === 'string'))
+  addrs.forEach(a => t.true(Multiaddr.isMultiaddr(a)))
 })
