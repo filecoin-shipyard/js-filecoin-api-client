@@ -7,6 +7,7 @@
 * [bootstrap.ls](#bootstrapls)
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
+* [id](#id)
 * [version](#version)
 * [wallet.addrs.ls](API.md#walletaddrsls)
 * [wallet.balance](#walletbalance)
@@ -197,6 +198,32 @@ for await (const block of fc.chain.ls())
        multihash:
         <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
     messageReceipts: [ [Object] ] } ]
+*/
+```
+
+## `id`
+
+> Get the identity of the Filecoin node
+
+### `id()`
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<{ id<CID>, addresses<String[]> }>` | TODO describe return value |
+
+#### Example
+
+```js
+const { id, addresses } = await fc.id()
+console.log({ id: id.toStrng(), addresses })
+
+/*
+{ id: 'QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
+  addresses:
+   [ '/ip4/127.0.0.1/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
+     '/ip4/192.168.1.132/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef' ] }
 */
 ```
 
