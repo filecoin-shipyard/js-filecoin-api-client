@@ -1,5 +1,5 @@
 const test = require('ava')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 
 test('should get wallet balance', async t => {
   const expectedBalance = '6900'

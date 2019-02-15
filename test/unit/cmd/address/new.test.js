@@ -1,5 +1,5 @@
 const test = require('ava')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 
 test('should create new miner address', async t => {
   const expectedAddr = 'fcq6pg4anvwxrz27c5zxkm3n2qf6yqmxqfnny0jqk'

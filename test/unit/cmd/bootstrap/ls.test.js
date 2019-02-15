@@ -1,5 +1,5 @@
 const test = require('ava')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 
 test('should list bootstrap node addresses', async t => {
   const expectedAddrs = [
@@ -11,8 +11,8 @@ test('should list bootstrap node addresses', async t => {
   const fetch = () => ({ ok: true, json: () => ({ Peers: expectedAddrs }) })
   const fc = Filecoin(fetch)
 
-  const addr = await fc.bootstrap.ls()
-  t.is(addr, expectedAddrs)
+  const addrs = await fc.bootstrap.ls()
+  t.is(addrs, expectedAddrs)
 })
 
 test('should throw on request error', async t => {

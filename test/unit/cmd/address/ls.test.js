@@ -1,5 +1,5 @@
 const test = require('ava')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 
 test('should list miner addresses', async t => {
   const expectedAddrs = [

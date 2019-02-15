@@ -1,6 +1,6 @@
 const test = require('ava')
 const CID = require('cids')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 const { toAsyncIterator } = require('../../helpers/iterator')
 
 test('should get blockchain', async t => {

@@ -1,6 +1,6 @@
 const test = require('ava')
 const CID = require('cids')
-const Filecoin = require('../../src')
+const Filecoin = require('../../../src')
 
 test('should get id', async t => {
   const jsonData = {
@@ -16,5 +16,7 @@ test('should get id', async t => {
   const res = await fc.id()
 
   t.true(CID.isCID(res.id))
+  t.is(res.id.toString(), jsonData.id)
   t.true(Array.isArray(res.addresses))
+  t.deepEqual(res.addresses, jsonData.Addresses)
 })

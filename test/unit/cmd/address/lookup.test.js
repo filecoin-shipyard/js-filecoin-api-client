@@ -1,5 +1,5 @@
 const test = require('ava')
-const Filecoin = require('../../../src')
+const Filecoin = require('../../../../src')
 
 test('should throw on request error', async t => {
   const message = `BOOM${Date.now()}`

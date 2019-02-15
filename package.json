@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "test": "ava --verbose",
+    "test": "npm run test:unit",
+    "test:unit": "ava --verbose 'test/unit/**/*.js'",
+    "test:e2e": "node test/e2e/_warn.js && ava --verbose 'test/e2e/**/*.js'",
     "coverage": "nyc --reporter=lcov --reporter=text ava --verbose"
   },
   "author": "Alan Shaw",
