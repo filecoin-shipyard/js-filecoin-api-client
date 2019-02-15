@@ -4,7 +4,7 @@ module.exports = (fetch, config) => {
     fetch = null
   }
 
-  fetch = fetch || require('./fetch').fetch
+  fetch = fetch || require('./lib/fetch').fetch
   config = config || {}
 
   config.apiAddr = config.apiAddr || '/ip4/127.0.0.1/tcp/3453/http'
@@ -13,18 +13,19 @@ module.exports = (fetch, config) => {
     actor: {
       ls: require('./cmd/actor/ls')(fetch, config)
     },
-    bootstrap: {
-      ls: require('./cmd/bootstrap/ls')(fetch, config)
-    },
     address: {
       lookup: require('./cmd/address/lookup')(fetch, config),
       ls: require('./cmd/address/ls')(fetch, config),
       new: require('./cmd/address/new')(fetch, config)
     },
+    bootstrap: {
+      ls: require('./cmd/bootstrap/ls')(fetch, config)
+    },
     chain: {
       head: require('./cmd/chain/head')(fetch, config),
       ls: require('./cmd/chain/ls')(fetch, config)
     },
+    id: require('./cmd/id')(fetch, config),
     version: require('./cmd/version')(fetch, config),
     wallet: {
       addrs: {
