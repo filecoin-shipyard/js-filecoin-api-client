@@ -7,6 +7,7 @@
 * [bootstrap.ls](#bootstrapls)
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
+* [config.get](#configget)
 * [id](#id)
 * [version](#version)
 * [wallet.addrs.ls](API.md#walletaddrsls)
@@ -200,6 +201,39 @@ After first iteration:
        multihash:
         <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
     messageReceipts: [ [Object] ] } ]
+*/
+```
+
+## `config.get`
+
+> Get config values
+
+### `config.get(key)`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| key | `String` | Dot separated key to config value to retrieve |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise` | The current config value |
+
+#### Example
+
+```js
+const value = await fc.config.get('bootstrap.addresses')
+console.log(value)
+
+/*
+["/dns4/nightly.kittyhawk.wtf/tcp/9000/ipfs/Qmd6xrWYHsxivfakYRy6MszTpuAiEoFbgE1LWw4EvwBpp4",
+  "/dns4/nightly.kittyhawk.wtf/tcp/9001/ipfs/QmXq6XEYeEmUzBFuuKbVEGgxEpVD4xbSkG2Rhek6zkFMp4",
+  "/dns4/nightly.kittyhawk.wtf/tcp/9002/ipfs/QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY",
+  "/dns4/nightly.kittyhawk.wtf/tcp/9003/ipfs/QmZGDLdQLUTi7uYTNavKwCd7SBc5KMfxzWxAyvqRQvwuiV",
+  "/dns4/nightly.kittyhawk.wtf/tcp/9004/ipfs/QmZRnwmCjyNHgeNDiyT8mXRtGhP6uSzgHtrozc42crmVbg']
 */
 ```
 

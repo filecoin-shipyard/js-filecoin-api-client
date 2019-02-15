@@ -25,6 +25,9 @@ module.exports = (fetch, config) => {
       head: require('./cmd/chain/head')(fetch, config),
       ls: require('./cmd/chain/ls')(fetch, config)
     },
+    config: {
+      get: require('./cmd/config/get')(fetch, config)
+    },
     id: require('./cmd/id')(fetch, config),
     version: require('./cmd/version')(fetch, config),
     wallet: {
