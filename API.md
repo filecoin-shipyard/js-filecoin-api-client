@@ -9,6 +9,7 @@
 * [chain.ls](#chainls)
 * [config.get](#configget)
 * [id](#id)
+* [swarm.peers](#swarmpeers)
 * [version](#version)
 * [wallet.addrs.ls](API.md#walletaddrsls)
 * [wallet.balance](#walletbalance)
@@ -260,6 +261,46 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
   addresses:
    [ '/ip4/127.0.0.1/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
      '/ip4/192.168.1.132/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef' ] }
+*/
+```
+
+## `swarm.peers`
+
+> List peers with open connections
+
+### `swarm.peers([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.latency | `Boolean` | Return information about latency for each peer |
+| options.streams | `Boolean` | Return information about open streams for each peer |
+| options.verbose | `Boolean` | Return all extra information |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object[]>` | List of peer info |
+
+#### Example
+
+```js
+const peers = await fc.swarm.peers({ verbose: true })
+console.log(peers.map(p => ({ ...p, addr: p.addr.toString() })))
+
+/*
+{ addr:
+    '/ip4/67.180.60.249/tcp/35645/ipfs/QmNTS7MeGJYu4StMn1EmnV6XyX4JhxZPNrHrdcApLNk1YA',
+   streams: [ { protocol: '/fil/hello/1.0.0' },
+    { protocol: '/fil/hello/1.0.0' },
+    { protocol: '/fil/kad/1.0.0' },
+    { protocol: '/floodsub/1.0.0' },
+    { protocol: '/floodsub/1.0.0' } ],
+   latency: 'n/a',
+   muxer: '' } ]
 */
 ```
 

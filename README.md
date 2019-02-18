@@ -46,6 +46,7 @@ const fc = Filecoin({
 * [chain.ls](API.md#chainls)
 * [config.get](API.md#configget)
 * [id](API.md#id)
+* [swarm.peers](API.md#swarmpeers)
 * [version](API.md#version)
 * [wallet.addrs.ls](API.md#walletaddrsls)
 * [wallet.balance](API.md#walletbalance)

@@ -29,6 +29,9 @@ module.exports = (fetch, config) => {
       get: require('./cmd/config/get')(fetch, config)
     },
     id: require('./cmd/id')(fetch, config),
+    swarm: {
+      peers: require('./cmd/swarm/peers')(fetch, config)
+    },
     version: require('./cmd/version')(fetch, config),
     wallet: {
       addrs: {
