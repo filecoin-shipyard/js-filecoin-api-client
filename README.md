@@ -35,6 +35,14 @@ const fc = Filecoin({
 </script>
 ```
 
+#### CORS
+
+In a web browser, the Filecoin HTTP client might encounter an error saying that the origin is not allowed. This is a CORS ("Cross Origin Resource Sharing") failure: Filecoin servers send HTTP headers allowing access to only certain origins by default. You can whitelist the origins that you are calling from by changing your Filecoin config like this:
+
+```sh
+$ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
+```
+
 ## API
 
 * [actor.ls](API.md#actorls)
