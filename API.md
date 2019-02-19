@@ -9,6 +9,7 @@
 * [chain.ls](#chainls)
 * [config.get](#configget)
 * [id](#id)
+* [swarm.connect](#swarmconnect)
 * [swarm.peers](#swarmpeers)
 * [version](#version)
 * [wallet.addrs.ls](API.md#walletaddrsls)
@@ -261,6 +262,38 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
   addresses:
    [ '/ip4/127.0.0.1/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
      '/ip4/192.168.1.132/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef' ] }
+*/
+```
+
+## `swarm.connect`
+
+> Open a connection to a given address
+
+### `swarm.connect(addr, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| addr | `String`\|`Multiaddr`\|`String[]`\|`Multiaddr[]` | Address(es) to connect to |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object[]>` | List of connection results |
+
+#### Example
+
+```js
+const res = await fc.swarm.connect('/ip4/192.168.1.1/tcp/6000/ipfs/QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK')
+console.log(res.map(p => ({ ...p, peer: p.peer.toString() })))
+
+/*
+[ { peer: 'QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK',
+    success: true } ]
 */
 ```
 
