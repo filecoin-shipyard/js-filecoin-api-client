@@ -16,15 +16,20 @@ exports.ok = async res => {
   res = await res
 
   if (!res.ok) {
-    const defaultMsg = `unexpected status ${res.status}`
+    const { status } = res
+    const defaultMsg = `unexpected status ${status}`
     let msg
     try {
-      const data = await res.json()
-      msg = data.message || data.Message
+      try {
+        const data = await res.json()
+        msg = data.message || data.Message
+      } catch (err) {
+        msg = await res.text()
+      }
     } catch (err) {
-      throw explain(err, defaultMsg)
+      throw Object.assign(explain(err, defaultMsg), { status })
     }
-    throw new Error(msg || defaultMsg)
+    throw Object.assign(new Error(msg || defaultMsg), { status })
   }
 
   return res
