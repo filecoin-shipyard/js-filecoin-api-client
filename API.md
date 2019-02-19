@@ -20,7 +20,14 @@
 
 > TODO describe actor.ls
 
-### `actor.ls()`
+### `actor.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -70,13 +77,15 @@ After first iteration:
 
 > TODO describe address.lookup
 
-### `address.lookup(addr)`
+### `address.lookup(addr, [options])`
 
 #### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | addr | `String` | Address to lookup peer ID for |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -88,7 +97,14 @@ After first iteration:
 
 > List miner address(es)
 
-### `address.ls()`
+### `address.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -107,7 +123,14 @@ console.log(addresses) // [fcqyz3pgq7qpg0nekps597zth57x7xmh4sad7euk0]
 
 > TODO describe address.new
 
-### `address.new()`
+### `address.new([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -126,7 +149,14 @@ console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
 
 > TODO describe bootstrap.ls
 
-### `bootstrap.ls()`
+### `bootstrap.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -152,7 +182,14 @@ console.log(addrs.map(a => a.toString()))
 
 > Get heaviest tipset CIDs
 
-### `chain.head()`
+### `chain.head([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -172,7 +209,14 @@ console.log(block.map(cid => cid.toString()))
 
 > Dump full block chain
 
-### `chain.ls()`
+### `chain.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -210,13 +254,15 @@ After first iteration:
 
 > Get config values
 
-### `config.get(key)`
+### `config.get(key, [options])`
 
 #### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | key | `String` | Dot separated key to config value to retrieve |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -243,7 +289,14 @@ console.log(value)
 
 > Get the identity of the Filecoin node
 
-### `id()`
+### `id([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -311,6 +364,7 @@ console.log(res.map(p => ({ ...p, peer: p.peer.toString() })))
 | options.latency | `Boolean` | Return information about latency for each peer |
 | options.streams | `Boolean` | Return information about open streams for each peer |
 | options.verbose | `Boolean` | Return all extra information |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -341,7 +395,14 @@ console.log(peers.map(p => ({ ...p, addr: p.addr.toString() })))
 
 > Get the version of the Filecoin node
 
-### `version()`
+### `version([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -364,7 +425,14 @@ console.log(version)
 
 > Get the wallet address(es)
 
-### `wallet.addrs.ls()`
+### `wallet.addrs.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -387,13 +455,15 @@ console.log(addresses)
 
 > Lookup the balance of a given wallet
 
-### `wallet.balance(addr)`
+### `wallet.balance(addr, [options])`
 
 #### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 | addr | `String` | Address of wallet to lookup balance of |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
 
@@ -404,6 +474,6 @@ console.log(addresses)
 #### Example
 
 ```js
-const balance = await fc.wallet.balance()
+const balance = await fc.wallet.balance('fcqqr00e38ge3vr90xx7x46gj7hq3dxcl09us08e')
 console.log(balance) // 6900
 ```
