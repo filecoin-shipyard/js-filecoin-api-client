@@ -8,6 +8,7 @@
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
 * [config.get](#configget)
+* [config.set](#configset)
 * [id](#id)
 * [swarm.connect](#swarmconnect)
 * [swarm.peers](#swarmpeers)
@@ -282,6 +283,38 @@ console.log(value)
   "/dns4/nightly.kittyhawk.wtf/tcp/9002/ipfs/QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY",
   "/dns4/nightly.kittyhawk.wtf/tcp/9003/ipfs/QmZGDLdQLUTi7uYTNavKwCd7SBc5KMfxzWxAyvqRQvwuiV",
   "/dns4/nightly.kittyhawk.wtf/tcp/9004/ipfs/QmZRnwmCjyNHgeNDiyT8mXRtGhP6uSzgHtrozc42crmVbg']
+*/
+```
+
+## `config.set`
+
+> Set a config value
+
+### `config.set(key, value, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| key | `String` | Dot separated key to config property name |
+| value | `?` | Value to set for the config value (must be JSON stringifyable) |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise` | The set config value |
+
+#### Example
+
+```js
+const value = await fc.config.set('api.address', '/ip4/127.0.0.1/tcp/3453')
+console.log(value)
+
+/*
+/ip4/127.0.0.1/tcp/3453
 */
 ```
 

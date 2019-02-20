@@ -26,7 +26,8 @@ module.exports = (fetch, config) => {
       ls: require('./cmd/chain/ls')(fetch, config)
     },
     config: {
-      get: require('./cmd/config/get')(fetch, config)
+      get: require('./cmd/config/get')(fetch, config),
+      set: require('./cmd/config/set')(fetch, config)
     },
     id: require('./cmd/id')(fetch, config),
     swarm: {
