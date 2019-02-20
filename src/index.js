@@ -30,6 +30,9 @@ module.exports = (fetch, config) => {
       set: require('./cmd/config/set')(fetch, config)
     },
     id: require('./cmd/id')(fetch, config),
+    log: {
+      tail: require('./cmd/log/tail')(fetch, config)
+    },
     swarm: {
       connect: require('./cmd/swarm/connect')(fetch, config),
       peers: require('./cmd/swarm/peers')(fetch, config)

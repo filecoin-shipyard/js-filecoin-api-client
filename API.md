@@ -10,6 +10,7 @@
 * [config.get](#configget)
 * [config.set](#configset)
 * [id](#id)
+* [log.tail](#logtail)
 * [swarm.connect](#swarmconnect)
 * [swarm.peers](#swarmpeers)
 * [version](#version)
@@ -349,6 +350,32 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
    [ '/ip4/127.0.0.1/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
      '/ip4/192.168.1.132/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef' ] }
 */
+```
+
+## `log.tail`
+
+> Tail the logs
+
+### `log.tail([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Object>` | Log entries |
+
+#### Example
+
+```js
+for await (const entry of fc.log.tail())
+  console.log(entry)
 ```
 
 ## `swarm.connect`

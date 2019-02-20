@@ -1,0 +1,144 @@
+{
+  "sample0": [
+    {
+      "event": "Bitswap.Rebroadcast.idle",
+      "system": "bitswap",
+      "time": "2019-02-20T20:06:38.950367Z"
+    },
+    {
+      "addresses": [
+        "/p2p-circuit",
+        "/ip4/127.0.0.1/tcp/6000",
+        "/ip4/192.168.0.17/tcp/6000"
+      ],
+      "event": "interfaceListenAddresses",
+      "system": "addrutil",
+      "time": "2019-02-20T20:06:39.190146Z"
+    },
+    {
+      "TraceID": 3408245272008122928,
+      "SpanID": 5014653491894053896,
+      "ParentSpanID": 0,
+      "Operation": "secureHandshake",
+      "Start": "2019-02-20T20:06:39.450455Z",
+      "Duration": 101526455,
+      "Tags": { "system": "secio" },
+      "Logs": [
+        {
+          "Timestamp": "2019-02-20T20:06:39.450481Z",
+          "Fields": [
+            {
+              "Key": "remotePeer",
+              "Value": "QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.450483Z",
+          "Fields": [{ "Key": "established", "Value": "false" }]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.450485Z",
+          "Fields": [
+            {
+              "Key": "localPeer",
+              "Value": "QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TraceID": 8787725752423871427,
+      "SpanID": 3617326162124794397,
+      "ParentSpanID": 0,
+      "Operation": "swarmDialDo",
+      "Start": "2019-02-20T20:06:39.189831Z",
+      "Duration": 524165660,
+      "Tags": { "system": "swarm2" },
+      "Logs": [
+        {
+          "Timestamp": "2019-02-20T20:06:39.189843Z",
+          "Fields": [
+            {
+              "Key": "localPeer",
+              "Value": "QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.189844Z",
+          "Fields": [
+            {
+              "Key": "remotePeer",
+              "Value": "QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.189846Z",
+          "Fields": [{ "Key": "subsystem", "Value": "swarm" }]
+        }
+      ]
+    },
+    {
+      "TraceID": 7182434419962293870,
+      "SpanID": 3549414091921882411,
+      "ParentSpanID": 0,
+      "Operation": "swarmDialAttemptStart",
+      "Start": "2019-02-20T20:06:39.189792Z",
+      "Duration": 524365035,
+      "Tags": { "system": "swarm2" },
+      "Logs": [
+        {
+          "Timestamp": "2019-02-20T20:06:39.189816Z",
+          "Fields": [{ "Key": "subsystem", "Value": "swarm" }]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.189818Z",
+          "Fields": [
+            {
+              "Key": "localPeer",
+              "Value": "QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK"
+            }
+          ]
+        },
+        {
+          "Timestamp": "2019-02-20T20:06:39.18982Z",
+          "Fields": [
+            {
+              "Key": "remotePeer",
+              "Value": "QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TraceID": 325907608848630265,
+      "SpanID": 5938876069602130660,
+      "ParentSpanID": 0,
+      "Operation": "swarmDialAttemptSync",
+      "Start": "2019-02-20T20:06:39.189623Z",
+      "Duration": 524595106,
+      "Tags": { "system": "swarm2" },
+      "Logs": [
+        {
+          "Timestamp": "2019-02-20T20:06:39.189668Z",
+          "Fields": [
+            {
+              "Key": "peerID",
+              "Value": "QmXhxqTKzBKHA5FcMuiKZv8YaMPwpbKGXHRVZcFB2DX9XY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cid": { "/": "zDPWYqFD3j8fr9NcPXtnDp9LcVH4mx9ncr8R2YVMisSoAYj3duRU" },
+      "event": "Bitswap.GetBlockRequest.Start",
+      "system": "bitswap",
+      "time": "2019-02-20T20:06:39.715203Z"
+    }
+  ]
+}

@@ -55,6 +55,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * [id](API.md#id)
+* [log.tail](API.md#logtail)
 * [swarm.connect](API.md#swarmconnect)
 * [swarm.peers](API.md#swarmpeers)
 * [version](API.md#version)
