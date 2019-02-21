@@ -1,4 +1,5 @@
 exports.toAsyncIterator = array => {
+  array = Array.from(array)
   return {
     [Symbol.asyncIterator] () {
       return this

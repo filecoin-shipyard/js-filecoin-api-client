@@ -25,6 +25,9 @@ module.exports = (fetch, config) => {
       head: require('./cmd/chain/head')(fetch, config),
       ls: require('./cmd/chain/ls')(fetch, config)
     },
+    client: {
+      cat: require('./cmd/client/cat')(fetch, config)
+    },
     config: {
       get: require('./cmd/config/get')(fetch, config),
       set: require('./cmd/config/set')(fetch, config)

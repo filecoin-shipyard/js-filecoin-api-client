@@ -7,6 +7,7 @@
 * [bootstrap.ls](#bootstrapls)
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
+* [client.cat](#clientcat)
 * [config.get](#configget)
 * [config.set](#configset)
 * [id](#id)
@@ -250,6 +251,34 @@ After first iteration:
         <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
     messageReceipts: [ [Object] ] } ]
 */
+```
+
+## `client.cat`
+
+> Read out data stored on the network
+
+### `client.cat(cid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| cid | `CID`\|`String` | CID of the content to read |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Buffer>` | Content of the file |
+
+#### Example
+
+```js
+let data = Buffer.alloc(0)
+for await (const chunk of fc.client.cat('QmZPUUg1QVMciR1yYnC2HSFrXyAUwRvpnbx4haYefB2KY3'))
+  data = Buffer.concat([data, chunk])
 ```
 
 ## `config.get`

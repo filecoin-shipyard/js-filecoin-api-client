@@ -52,6 +52,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [bootstrap.ls](API.md#bootstrapls)
 * [chain.head](API.md#chainhead)
 * [chain.ls](API.md#chainls)
+* [client.cat](API.md#clientcat)
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * [id](API.md#id)
