@@ -1,7 +1,7 @@
 const test = require('ava')
 const CID = require('cids')
 const Filecoin = require('../../../../src')
-const { toAsyncIterable } = require('../../../helpers/iterator')
+const { toAsyncIterable } = require('../../../helpers/iterable')
 
 test('should get blockchain', async t => {
   const expectedBlocks = [
@@ -71,7 +71,7 @@ test('should deserialize state root CID', async t => {
 
 test('should throw on request error', async t => {
   const message = `BOOM${Date.now()}`
-  const fetch = () => ({ ok: false, json: () => ({ message }) })
+  const fetch = () => ({ ok: false, text: () => JSON.stringify({ message }) })
   const fc = Filecoin(fetch)
 
   try {

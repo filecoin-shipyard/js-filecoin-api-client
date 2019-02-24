@@ -2,7 +2,7 @@ const test = require('ava')
 const { randomBytes } = require('crypto')
 const CID = require('cids')
 const Filecoin = require('../../../../src')
-const { toAsyncIterable } = require('../../../helpers/iterator')
+const { toAsyncIterable } = require('../../../helpers/iterable')
 
 test('should cat a file with CID string', async t => {
   const cid = 'QmZPUUg1QVMciR1yYnC2HSFrXyAUwRvpnbx4haYefB2KY3'

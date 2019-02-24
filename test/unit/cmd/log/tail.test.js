@@ -1,6 +1,6 @@
 const test = require('ava')
 const Filecoin = require('../../../../src')
-const { toAsyncIterable } = require('../../../helpers/iterator')
+const { toAsyncIterable } = require('../../../helpers/iterable')
 const Fixtures = require('./tail.fixtures.json')
 
 test('should tail the log', async t => {

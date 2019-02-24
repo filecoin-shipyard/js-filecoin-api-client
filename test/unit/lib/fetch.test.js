@@ -4,11 +4,11 @@ const { ok } = require('../../../src/lib/fetch')
 test('should parse json error response', async t => {
   const res = {
     ok: false,
-    json: () => Promise.resolve({
+    text: () => Promise.resolve(JSON.stringify({
       Message: 'boom',
       Code: 0,
       Type: 'error'
-    }),
+    })),
     status: 500
   }
 

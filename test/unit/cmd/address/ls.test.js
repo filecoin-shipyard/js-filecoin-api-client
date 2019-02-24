@@ -20,7 +20,7 @@ test('should list miner addresses', async t => {
 
 test('should throw on request error', async t => {
   const message = `BOOM${Date.now()}`
-  const fetch = () => ({ ok: false, json: () => ({ message }) })
+  const fetch = () => ({ ok: false, text: () => JSON.stringify({ message }) })
   const fc = Filecoin(fetch)
 
   try {
