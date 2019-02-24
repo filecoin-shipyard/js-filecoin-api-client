@@ -8,6 +8,7 @@
 * [chain.head](#chainhead)
 * [chain.ls](#chainls)
 * [client.cat](#clientcat)
+* [client.import](#clientimport)
 * [config.get](#configget)
 * [config.set](#configset)
 * [id](#id)
@@ -279,6 +280,42 @@ After first iteration:
 let data = Buffer.alloc(0)
 for await (const chunk of fc.client.cat('QmZPUUg1QVMciR1yYnC2HSFrXyAUwRvpnbx4haYefB2KY3'))
   data = Buffer.concat([data, chunk])
+```
+
+## `client.import`
+
+> Import data into the local node
+
+### `client.import(input, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| input | `Buffer`\|`String`\|`AsyncIterable`\|`TypedArray`\|`Blob` | Data to import. Note, `TypedArray` and `Blob` supported in browser only. |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<CID>` | CID of the imported content |
+
+#### Example
+
+From a buffer:
+
+```js
+const data = Buffer.from('Hello World!')
+const cid = await fc.client.import(data)
+```
+
+From a Node.js stream (or async iterable):
+
+```js
+const data = fs.createReadStream('/path/to/file')
+const cid = await fc.client.import(data)
 ```
 
 ## `config.get`
