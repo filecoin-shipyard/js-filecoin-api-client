@@ -1,7 +1,7 @@
 /* eslint-env browser */
 
 const toUri = require('multiaddr-to-uri')
-const toStream = require('async-iterator-to-stream')
+// const toStream = require('async-iterator-to-stream')
 const FormData = require('form-data')
 const CID = require('cids')
 const { ok } = require('../../lib/fetch')
@@ -34,7 +34,14 @@ async function toFormData (input) {
   // In Node.js, FormData can be passed a stream so no need to buffer
   if (isNode) {
     const formData = new FormData()
-    formData.append('file', toStream(input))
+    const bufs = []
+    for await (const chunk of input) {
+      bufs.push(Buffer.from(chunk))
+    }
+    // FIXME: the below does not work! It should do, but only the first chunk
+    // gets uploaded :(
+    // formData.append('file', toStream(input))
+    formData.append('file', Buffer.concat(bufs))
     return formData
   }
 
@@ -42,11 +49,11 @@ async function toFormData (input) {
   // async iterator chunks and append a big Blob :(
   if (isBrowser) {
     // One day, this will be browser streams
+    const formData = new FormData()
     const bufs = []
     for await (const chunk of input) {
       bufs.push(Buffer.isBuffer(chunk) ? chunk.buffer : chunk)
     }
-    const formData = new FormData()
     formData.append('file', new Blob(bufs))
     return formData
   }
