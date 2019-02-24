@@ -4,7 +4,6 @@
   "description": "API client for Filecoin",
   "main": "src/index.js",
   "browser": {
-    "node-fetch": false,
     "async-iterator-to-stream": false
   },
   "scripts": {

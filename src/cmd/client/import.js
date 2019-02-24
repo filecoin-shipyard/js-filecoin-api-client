@@ -11,13 +11,11 @@ module.exports = (fetch, config) => {
   return async (input, options) => {
     options = options || {}
 
-    const formData = await toFormData(input)
-
     const url = `${toUri(config.apiAddr)}/api/client/import`
     const res = await ok(fetch(url, {
       method: 'POST',
       signal: options.signal,
-      body: formData
+      body: await toFormData(input)
     }))
 
     const data = await res.json()
@@ -33,12 +31,15 @@ async function toFormData (input) {
     return formData
   }
 
+  // In Node.js, FormData can be passed a stream so no need to buffer
   if (isNode) {
     const formData = new FormData()
     formData.append('file', toStream(input))
     return formData
   }
 
+  // In the browser there's _currently_ no streaming upload, buffer up our
+  // async iterator chunks and append a big Blob :(
   if (isBrowser) {
     // One day, this will be browser streams
     const bufs = []

@@ -1,13 +1,6 @@
 const explain = require('explain-error')
-const { isBrowser, isNode } = require('./env')
 
-if (isBrowser) {
-  exports.fetch = fetch // eslint-disable-line
-} else if (isNode) {
-  exports.fetch = require('node-fetch')
-} else {
-  throw new Error('unknown environment')
-}
+exports.fetch = require('node-fetch')
 
 // Ensure fetch response is ok (200)
 // and if not, attempt to JSON parse body, extract error message and throw
@@ -36,9 +29,7 @@ exports.ok = async res => {
 }
 
 exports.toIterable = body => {
-  if (body[Symbol.asyncIterator]) {
-    return body[Symbol.asyncIterator]()
-  }
+  if (body[Symbol.asyncIterator]) return body
 
   if (body.getReader) {
     return (async function * () {
