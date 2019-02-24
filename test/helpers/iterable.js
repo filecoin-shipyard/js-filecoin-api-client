@@ -1,4 +1,4 @@
-exports.toAsyncIterator = array => {
+exports.toAsyncIterable = array => {
   array = Array.from(array)
   return {
     [Symbol.asyncIterator] () {

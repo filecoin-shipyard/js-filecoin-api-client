@@ -1,12 +1,12 @@
 const test = require('ava')
 const Filecoin = require('../../../../src')
-const { toAsyncIterator } = require('../../helpers/iterator')
+const { toAsyncIterable } = require('../../../helpers/iterator')
 const Fixtures = require('./tail.fixtures.json')
 
 test('should tail the log', async t => {
   const fetch = () => ({
     ok: true,
-    body: toAsyncIterator(Fixtures.sample0.map(l => JSON.stringify(l) + '\n'))
+    body: toAsyncIterable(Fixtures.sample0.map(l => JSON.stringify(l) + '\n'))
   })
   const fc = Filecoin(fetch)
 
