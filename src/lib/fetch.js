@@ -1,10 +1,9 @@
 const explain = require('explain-error')
+const { isBrowser, isNode } = require('./env')
 
-if (typeof window !== 'undefined' || typeof self !== 'undefined') {
-  // Browser/worker
+if (isBrowser) {
   exports.fetch = fetch // eslint-disable-line
-} else if (typeof global !== 'undefined') {
-  // Node.js
+} else if (isNode) {
   exports.fetch = require('node-fetch')
 } else {
   throw new Error('unknown environment')
@@ -20,11 +19,12 @@ exports.ok = async res => {
     const defaultMsg = `unexpected status ${status}`
     let msg
     try {
+      let data = await res.text()
       try {
-        const data = await res.json()
+        data = JSON.parse(data)
         msg = data.message || data.Message
       } catch (err) {
-        msg = await res.text()
+        msg = data
       }
     } catch (err) {
       throw Object.assign(explain(err, defaultMsg), { status })

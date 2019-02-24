@@ -4,7 +4,8 @@
   "description": "API client for Filecoin",
   "main": "src/index.js",
   "browser": {
-    "node-fetch": false
+    "node-fetch": false,
+    "async-iterator-to-stream": false
   },
   "scripts": {
     "build": "webpack",
@@ -17,8 +18,10 @@
   "author": "Alan Shaw",
   "license": "",
   "dependencies": {
+    "async-iterator-to-stream": "^1.1.0",
     "cids": "^0.5.7",
     "explain-error": "^1.0.4",
+    "form-data": "^2.3.3",
     "iterable-ndjson": "^1.0.0",
     "multiaddr": "^6.0.4",
     "multiaddr-to-uri": "^4.0.1",
