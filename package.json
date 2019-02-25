@@ -15,7 +15,7 @@
     "lint": "standard"
   },
   "author": "Alan Shaw",
-  "license": "",
+  "license": "(Apache-2.0 OR MIT)",
   "dependencies": {
     "async-iterator-to-stream": "^1.1.0",
     "cids": "^0.5.7",
@@ -42,5 +42,23 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filecoin-project/js-filecoin-api-client.git"
+  },
+  "keywords": [
+    "Filecoin",
+    "FIL",
+    "API",
+    "HTTP",
+    "REST"
+  ],
+  "bugs": {
+    "url": "https://github.com/filecoin-project/js-filecoin-api-client/issues"
+  },
+  "homepage": "https://github.com/filecoin-project/js-filecoin-api-client#readme"
 }
