@@ -1,11 +1,11 @@
-# filecoin-api
+# filecoin-api-client
 
 > An API client for Filecoin
 
 ## Install
 
 ```sh
-npm i filecoin-api@filecoin-project/js-filecoin-api
+npm i filecoin-api-client
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm i filecoin-api@filecoin-project/js-filecoin-api
 ### Node.js
 
 ```js
-const Filecoin = require('filecoin-api')
+const Filecoin = require('filecoin-api-client')
 
 const fc = Filecoin({
   apiAddr: '/ip4/127.0.0.1/tcp/3453/http' // (optional, default)
@@ -25,9 +25,9 @@ const fc = Filecoin({
 ### Browser
 
 ```html
-<script src="https://unpkg.com/filecoin-api/dist/FilecoinApi.js"></script>
+<script src="https://unpkg.com/filecoin-api-client/dist/Filecoin.js"></script>
 <script>
-  const fc = FilecoinApi({
+  const fc = Filecoin({
     apiAddr: '/ip4/127.0.0.1/tcp/3453/http' // (optional, default)
   })
 
@@ -37,7 +37,7 @@ const fc = Filecoin({
 
 #### CORS
 
-In a web browser, the Filecoin HTTP client might encounter an error saying that the origin is not allowed. This is a CORS ("Cross Origin Resource Sharing") failure: Filecoin servers send HTTP headers allowing access to only certain origins by default. You can whitelist the origins that you are calling from by changing your Filecoin config like this:
+In a web browser, the Filecoin API client might encounter an error saying that the origin is not allowed. This is a CORS ("Cross Origin Resource Sharing") failure: Filecoin servers send HTTP headers allowing access to only certain origins by default. You can whitelist the origins that you are calling from by changing your Filecoin config like this:
 
 ```sh
 $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
@@ -67,7 +67,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 
 ## Contribute
 
-Feel free to dive in! [Open an issue](https://github.com/filecoin-project/js-filecoin-api/issues/new) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/filecoin-project/js-filecoin-api-client/issues/new) or submit PRs.
 
 ## License
 

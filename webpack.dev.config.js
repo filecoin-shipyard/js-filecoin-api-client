@@ -3,8 +3,8 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   output: {
-    filename: 'FilecoinApi.js',
-    library: 'FilecoinApi'
+    filename: 'Filecoin.js',
+    library: 'Filecoin'
   },
   devtool: false,
   plugins: [
