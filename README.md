@@ -1,5 +1,9 @@
 # filecoin-api-client
 
+![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-project/js-filecoin-api-client/master.svg)
+[![dependencies Status](https://david-dm.org/filecoin-project/js-filecoin-api-client/status.svg)](https://david-dm.org/filecoin-project/js-filecoin-api-client)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 > An API client for Filecoin
 
 ## Install
