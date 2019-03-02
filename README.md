@@ -89,7 +89,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * paych.reclaim
 * paych.redeem
 * paych.voucher
-* ping
+* [ping](API.md#ping)
 * retrievalClient.retrievePiece
 * [show.block](API.md#showblock)
 * [swarm.connect](API.md#swarmconnect)
