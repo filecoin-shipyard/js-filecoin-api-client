@@ -37,6 +37,7 @@ module.exports = (fetch, config) => {
     log: {
       tail: require('./cmd/log/tail')(fetch, config)
     },
+    ping: require('./cmd/ping')(fetch, config),
     show: {
       block: require('./cmd/show/block')(fetch, config)
     },

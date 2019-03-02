@@ -40,7 +40,7 @@
 * paych.reclaim
 * paych.redeem
 * paych.voucher
-* ping
+* [ping](#ping)
 * retrievalClient.retrievePiece
 * [show.block](#showblock)
 * [swarm.connect](#swarmconnect)
@@ -476,6 +476,42 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
 ```js
 for await (const entry of fc.log.tail())
   console.log(entry)
+```
+
+## `ping`
+
+> Send echo request packets to p2p network members
+
+### `ping(peerId, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| peerId | `CID`\|`String` | ID of peer to be pinged |
+| options | `Object` | Optional options |
+| options.count | `Number` | Number of ping messages to send. Default: 10 |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<{ success<Boolean>, text<String>, time<Number> }>` | Async iterable of pong messages received by the node |
+
+#### Example
+
+```js
+const peers = await fc.swarm.peers()
+const peerId = peers[0].addr.getPeerId()
+
+for await (const pong of fc.ping(peerId))
+  console.log(pong)
+
+/*
+After first iteration:
+{ success: true, text: '', time: 187.54 }
+*/
 ```
 
 ## `show.block`
