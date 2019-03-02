@@ -1,3 +1,19 @@
 {
-  "sample0": {"miner":"","ticket":null,"parents":null,"parentWeight":"AA==","height":"AA==","nonce":"AA==","messages":null,"stateRoot":{"/":"zdpuAmoP1FzpYeYHJmiqbobuE6eddWEBtqZmadkSp6UCnExu9"},"messageReceipts":null,"proof":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+  "sample0": {
+    "miner": "",
+    "ticket": null,
+    "parents": [
+      {
+        "/": "zDPWYqFCtf5awkxnZbpurnQFvsrafnv4nJbP8UkAHD8GCf8T2Sz4"
+      }
+    ],
+    "height": "AQ==",
+    "nonce": "AQ==",
+    "parentWeight": "Mg==",
+    "messages": [],
+    "stateRoot": {
+      "/": "zdpuAm8mTU17dB5mckEDSNXFtvuxVESUhKivSLCWw1kMZjdK9"
+    },
+    "messageReceipts": []
+  }
 }
