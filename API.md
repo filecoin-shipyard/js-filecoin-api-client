@@ -13,6 +13,7 @@
 * [config.set](#configset)
 * [id](#id)
 * [log.tail](#logtail)
+* [show.block](#showblock)
 * [swarm.connect](#swarmconnect)
 * [swarm.peers](#swarmpeers)
 * [version](#version)
@@ -442,6 +443,58 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
 ```js
 for await (const entry of fc.log.tail())
   console.log(entry)
+```
+
+## `show.block`
+
+> Show a filecoin block by its CID
+
+### `show.block(cid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| cid | `CID`\|`String` | CID of block to show |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | The blockchain block |
+
+#### Example
+
+```js
+const block = await fc.show.block('zDPWYqFCutuHwRZhGXzji9L4eHeoFxxNCxCruGjWje36aAvbK2XV')
+console.log(block)
+
+/*
+{ miner: '',
+  ticket: null,
+  parents: null,
+  parentWeight: 'AA==',
+  height: 'AA==',
+  nonce: 'AA==',
+  messages: null,
+  stateRoot:
+   CID {
+     codec: 'dag-cbor',
+     version: 1,
+     multihash:
+      <Buffer 12 20 14 7a 88 87 36 57 34 05 49 9d 46 d3 3e 7f fa 95 3e 36 9e 84 b3 8a c8 52 8f 99 7f fb f6 d9 de 84> },
+  messageReceipts: null,
+  proof:
+   [ 0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     ... 92 more items ] }
+*/
 ```
 
 ## `swarm.connect`

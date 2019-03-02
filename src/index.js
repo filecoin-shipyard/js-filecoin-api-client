@@ -37,6 +37,9 @@ module.exports = (fetch, config) => {
     log: {
       tail: require('./cmd/log/tail')(fetch, config)
     },
+    show: {
+      block: require('./cmd/show/block')(fetch, config)
+    },
     swarm: {
       connect: require('./cmd/swarm/connect')(fetch, config),
       peers: require('./cmd/swarm/peers')(fetch, config)
