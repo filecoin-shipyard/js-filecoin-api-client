@@ -4,7 +4,8 @@
   "description": "API client for Filecoin",
   "main": "src/index.js",
   "browser": {
-    "async-iterator-to-stream": false
+    "async-iterator-to-stream": false,
+    "./src/lib/form-data.js": "./src/lib/form-data.browser.js"
   },
   "scripts": {
     "build": "webpack",
@@ -21,6 +22,7 @@
     "cids": "^0.5.7",
     "explain-error": "^1.0.4",
     "form-data": "^2.3.3",
+    "is-buffer": "^2.0.3",
     "iterable-ndjson": "^1.0.0",
     "multiaddr": "^6.0.5",
     "multiaddr-to-uri": "^4.0.1",
