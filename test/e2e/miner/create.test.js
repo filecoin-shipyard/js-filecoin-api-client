@@ -8,6 +8,8 @@ test('should create a miner', async t => {
   const walletAddr = await fc.wallet.addrs.new()
   const messageCid = await faucet(walletAddr)
 
+  console.log('waiting for message' + messageCid)
+
   await fc.message.wait(messageCid)
 
   const res = await fc.miner.create({ pledge: 1, collateral: 0.0001, price: 0, limit: 1000 })
