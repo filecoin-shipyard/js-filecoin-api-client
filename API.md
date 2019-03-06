@@ -306,7 +306,7 @@ After first iteration:
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Buffer>` | Content of the file |
+| `AsyncIterable<Buffer|UInt8Array>` | Content of the file, yields `Buffer` objects in Node.js and `UInt8Array` objects in the browser |
 
 #### Example
 
