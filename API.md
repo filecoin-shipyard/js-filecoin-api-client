@@ -16,6 +16,7 @@
 * [config.get](#configget)
 * [config.set](#configset)
 * dag.get
+* dht.findProvs
 * message.send
 * message.wait
 * miner.addAsk

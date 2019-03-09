@@ -65,6 +65,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * dag.get
+* dht.findProvs
 * message.send
 * message.wait
 * miner.addAsk
