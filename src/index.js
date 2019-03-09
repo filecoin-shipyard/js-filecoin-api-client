@@ -33,6 +33,9 @@ module.exports = (fetch, config) => {
       get: require('./cmd/config/get')(fetch, config),
       set: require('./cmd/config/set')(fetch, config)
     },
+    dht: {
+      findProvs: require('./cmd/dht/find-provs')(fetch, config)
+    },
     id: require('./cmd/id')(fetch, config),
     log: {
       tail: require('./cmd/log/tail')(fetch, config)

@@ -16,7 +16,7 @@
 * [config.get](#configget)
 * [config.set](#configset)
 * dag.get
-* dht.findProvs
+* [dht.findProvs](#dhtfindprovs)
 * message.send
 * message.wait
 * miner.addAsk
@@ -417,6 +417,66 @@ console.log(value)
 
 /*
 /ip4/127.0.0.1/tcp/3453
+*/
+```
+
+## `dht.findProvs`
+
+> Find peers that can provide a given key's value.
+
+### `dht.findProvs(key, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| key | `String` | The key whose provider Peer IDs are output |
+| options | `Object` | Optional options |
+| options.numProviders | `Boolean` | The max number of providers to find. Default: 20 |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Object>` | Responses from peers documenting the providers that provide the value. |
+
+#### Example
+
+```js
+for await (const res of fc.dht.findProvs('QmbFMke1KXqnYyBBWxB74N4c5SBnJMVAiMNRcGu6x1AwQH'))
+  console.log(res)
+
+/*
+Example iteration output:
+{ type: 1,
+  responses:
+   [ { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] },
+     { id: [CID], addrs: [Array] } ],
+  id:
+   CID {
+     codec: 'dag-pb',
+     version: 0,
+     multihash:
+      <Buffer 12 20 80 ac 25 a4 a1 64 ee 3f 84 13 d1 a3 a7 7b ab fc b8 eb ef 7f 98 99 81 28 e1 0b 00 9f da 99 7e f0> } }
 */
 ```
 
