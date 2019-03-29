@@ -50,7 +50,8 @@ module.exports = (fetch, config) => {
     },
     version: require('./cmd/version')(fetch, config),
     wallet: {
-      balance: require('./cmd/wallet/balance')(fetch, config)
+      balance: require('./cmd/wallet/balance')(fetch, config),
+      export: require('./cmd/wallet/export')(fetch, config)
     }
   }
 }

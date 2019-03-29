@@ -49,7 +49,7 @@
 * [swarm.peers](#swarmpeers)
 * [version](#version)
 * [wallet.balance](#walletbalance)
-* wallet.export
+* [wallet.export](#walletexport)
 * wallet.import
 
 ## `actor.ls`
@@ -782,4 +782,69 @@ console.log(addresses)
 ```js
 const balance = await fc.wallet.balance('fcqqr00e38ge3vr90xx7x46gj7hq3dxcl09us08e')
 console.log(balance) // 6900
+```
+
+## `wallet.export`
+
+> Export key information for wallets
+
+### `wallet.export(addr, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| addr | `String`\|`String[]` | Address(es) of wallet(s) to export |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | Exported key info |
+
+#### Example
+
+Single:
+
+```js
+const info = await fc.wallet.export('fcqqr00e38ge3vr90xx7x46gj7hq3dxcl09us08e')
+console.log(info)
+
+/*
+{
+  keyInfo: [
+    {
+      privateKey: 'RxOfKlALxw8+XCaHQGaJfpXRWweYl+/xdIxVQfJTaTU=',
+      curve: 'secp256k1'
+    }
+  ]
+}
+*/
+```
+
+Multiple:
+
+```js
+const info = await fc.wallet.export([
+  'fcqqr00e38ge3vr90xx7x46gj7hq3dxcl09us08e',
+  'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52'
+])
+console.log(info)
+
+/*
+{
+  keyInfo: [
+    {
+      privateKey: 'RxOfKlALxw8+XCaHQGaJfpXRWweYl+/xdIxVQfJTaTU=',
+      curve: 'secp256k1'
+    },
+    {
+      privateKey: 'rZ7hdys60Rk5+kab9ZuUJ87o6zLgyYgOqP1lHEAYgwo=',
+      curve: 'secp256k1'
+    }
+  ]
+}
+*/
 ```

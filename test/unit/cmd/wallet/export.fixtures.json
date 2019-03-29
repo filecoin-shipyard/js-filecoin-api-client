@@ -1,0 +1,26 @@
+{
+  "single": {
+    "KeyInfo": [
+      {
+        "privateKey": "RxOfKlALxw8+XCaHQGaJfpXRWweYl+/xdIxVQfJTaTU=",
+        "curve": "secp256k1"
+      }
+    ]
+  },
+  "multiple": {
+    "KeyInfo": [
+      {
+        "privateKey": "RxOfKlALxw8+XCaHQGaJfpXRWweYl+/xdIxVQfJTaTU=",
+        "curve": "secp256k1"
+      },
+      {
+        "privateKey": "yGZieo9zCXIaQmpqjhhkqHdIy9N7zHJVbE34WJs1aFI=",
+        "curve": "secp256k1"
+      },
+      {
+        "privateKey": "wtmOLFQl7HOPCN73GQkMzBMemxk/IJYPcRHkFf6aiWo=",
+        "curve": "secp256k1"
+      }
+    ]
+  }
+}
