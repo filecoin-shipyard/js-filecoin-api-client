@@ -97,9 +97,6 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * swarm.findPeer
 * [swarm.peers](API.md#swarmpeers)
 * [version](API.md#version)
-* wallet.addrs.lookup
-* [wallet.addrs.ls](API.md#walletaddrsls)
-* wallet.addrs.new
 * [wallet.balance](API.md#walletbalance)
 * wallet.export
 * wallet.import

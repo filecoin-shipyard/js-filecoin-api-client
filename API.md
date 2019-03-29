@@ -48,9 +48,6 @@
 * swarm.findPeer
 * [swarm.peers](#swarmpeers)
 * [version](#version)
-* wallet.addrs.lookup
-* [wallet.addrs.ls](#walletaddrsls)
-* wallet.addrs.new
 * [wallet.balance](#walletbalance)
 * wallet.export
 * wallet.import
@@ -134,7 +131,7 @@ After first iteration:
 
 ## `address.ls`
 
-> List miner address(es)
+> List address(es)
 
 ### `address.ls([options])`
 
@@ -149,7 +146,7 @@ After first iteration:
 
 | Type | Description |
 |------|-------------|
-| `Promise<String[]>` | Miner addresses |
+| `Promise<String[]>` | Addresses |
 
 #### Example
 
