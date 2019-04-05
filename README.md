@@ -107,6 +107,8 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [wallet.export](API.md#walletexport)
 * wallet.import
 
+Status: 22/57 **39%**
+
 ## Contribute
 
 Feel free to dive in! [Open an issue](https://github.com/filecoin-project/js-filecoin-api-client/issues/new) or submit PRs.
