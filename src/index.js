@@ -40,6 +40,7 @@ module.exports = (fetch, config) => {
     id: require('./cmd/id')(fetch, config),
     log: {
       level: require('./cmd/log/level')(fetch, config),
+      ls: require('./cmd/log/ls')(fetch, config),
       tail: require('./cmd/log/tail')(fetch, config)
     },
     ping: require('./cmd/ping')(fetch, config),
