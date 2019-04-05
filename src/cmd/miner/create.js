@@ -3,10 +3,10 @@ const QueryString = require('querystring')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
-  return async ({ pledge, collateral, price, limit }, options) => {
+  return async (pledge, collateral, options) => {
     options = options || {}
 
-    const qs = { arg: [pledge, collateral], price, limit }
+    const qs = { arg: [pledge, collateral] }
 
     if (options.from != null) {
       qs.from = options.from
@@ -18,6 +18,14 @@ module.exports = (fetch, config) => {
 
     if (options.preview != null) {
       qs.preview = options.preview
+    }
+
+    if (options.gasPrice != null) {
+      qs['gas-price'] = options.gasPrice
+    }
+
+    if (options.gasLimit != null) {
+      qs['gas-limit'] = options.gasLimit
     }
 
     const url = `${toUri(config.apiAddr)}/api/miner/create?${QueryString.stringify(qs)}`

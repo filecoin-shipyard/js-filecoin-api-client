@@ -12,7 +12,9 @@ test('should create a miner', async t => {
 
   await fc.message.wait(messageCid)
 
-  const res = await fc.miner.create({ pledge: 1, collateral: 0.0001, price: 0, limit: 1000 })
+  const pledge = 10
+  const collateral = 100
+  const res = await fc.miner.create(pledge, collateral, { gasPrice: 0.1, gasLimit: 10 })
 
   console.log(res)
 })
