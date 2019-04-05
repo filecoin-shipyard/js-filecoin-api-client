@@ -1,7 +1,7 @@
 # API
 
 * [actor.ls](#actorls)
-* address.default
+* [address.default](#addressdefault)
 * [address.lookup](#addresslookup)
 * [address.ls](#addressls)
 * [address.new](#addressnew)
@@ -113,6 +113,32 @@ After first iteration:
      multihash:
       <Buffer a0 e4 02 20 7c 25 c7 49 04 93 28 60 45 69 05 30 1f cd 10 ba d8 5d b6 85 b9 e1 37 7f 6e c5 2a 70 b8 cf 67 bf> } }
 */
+```
+
+## `address.default`
+
+> Fetch the default address
+
+### `address.default([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<String>` | The default address |
+
+#### Example
+
+```js
+const addr = await fc.address.default()
+console.log(addr) // t1gwlbykvhfrkhrtll43ceiyzgggk7omnololcwpy
 ```
 
 ## `address.lookup`
@@ -310,7 +336,7 @@ After first iteration:
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Buffer|UInt8Array>` | Content of the file, yields `Buffer` objects in Node.js and `UInt8Array` objects in the browser |
+| `AsyncIterable<Buffer\|UInt8Array>` | Content of the file, yields `Buffer` objects in Node.js and `UInt8Array` objects in the browser |
 
 #### Example
 

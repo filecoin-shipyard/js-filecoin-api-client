@@ -50,7 +50,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 ## API
 
 * [actor.ls](API.md#actorls)
-* address.default
+* [address.default](API.md#addressdefault)
 * [address.lookup](API.md#addresslookup)
 * [address.ls](API.md#addressls)
 * [address.new](API.md#addressnew)
