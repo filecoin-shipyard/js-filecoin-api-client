@@ -4,9 +4,9 @@ const { toAsyncIterable } = require('../../helpers/iterable')
 
 test('should ping a peer', async t => {
   const pingResponses = [
-    { Success: true, Text: '', Time: 187.54 },
-    { Success: true, Text: '', Time: 173.06 },
-    { Success: true, Text: '', Time: 182.41 }
+    { Count: 0, Time: 187.54 },
+    { Count: 1, Time: 173.06 },
+    { Count: 2, Time: 182.41 }
   ]
 
   const fetch = () => ({
@@ -18,8 +18,7 @@ test('should ping a peer', async t => {
 
   let i = 0
   for await (const pong of fc.ping(peerId)) {
-    t.is(pong.success, pingResponses[i].Success)
-    t.is(pong.text, pingResponses[i].Text)
+    t.is(pong.count, pingResponses[i].Count)
     t.is(pong.time, pingResponses[i].Time)
     i++
   }
@@ -27,9 +26,9 @@ test('should ping a peer', async t => {
 
 test('should ping a peer with count option', async t => {
   const pingResponses = [
-    { Success: true, Text: '', Time: 187.54 },
-    { Success: true, Text: '', Time: 173.06 },
-    { Success: true, Text: '', Time: 182.41 }
+    { Count: 0, Time: 187.54 },
+    { Count: 1, Time: 173.06 },
+    { Count: 2, Time: 182.41 }
   ]
 
   const fetch = url => {
@@ -46,8 +45,7 @@ test('should ping a peer with count option', async t => {
 
   let i = 0
   for await (const pong of fc.ping(peerId, { count })) {
-    t.is(pong.success, pingResponses[i].Success)
-    t.is(pong.text, pingResponses[i].Text)
+    t.is(pong.count, pingResponses[i].Count)
     t.is(pong.time, pingResponses[i].Time)
     i++
   }

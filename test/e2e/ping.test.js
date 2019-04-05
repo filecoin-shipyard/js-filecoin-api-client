@@ -12,9 +12,10 @@ test('should ping a peer', async t => {
 
   const peerId = peers[0].addr.getPeerId()
 
-  for await (const pong of fc.ping(peerId)) {
+  let i = 0
+  for await (const pong of fc.ping(peerId, { count: 2 })) {
     t.false(Number.isNaN(pong.time))
-    t.true(typeof pong.text === 'string')
-    t.true(pong.success === true || pong.success === false)
+    t.is(pong.count, i)
+    i++
   }
 })
