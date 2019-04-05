@@ -37,7 +37,7 @@
 * mpool.rm
 * mpool.show
 * [id](#id)
-* log.level
+* [log.level](#loglevel)
 * log.ls
 * [log.tail](#logtail)
 * paych.close
@@ -540,6 +540,43 @@ console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
    [ '/ip4/127.0.0.1/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
      '/ip4/192.168.1.132/tcp/6000/ipfs/QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef' ] }
 */
+```
+
+## `log.level`
+
+> Set the logging level for a subsystem or all subsystems
+
+### `log.level(level, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| level | `String` | Log level to set. Available levels: debug, info, warning, error, fatal |
+| options | `Object` | Optional options |
+| options.subsystem | `String` | Subsystem to set the log level for. See [`log.ls`](#logls) for available subsystems |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<String>` | Confirmation message |
+
+#### Example
+
+Set log level for all subsystems:
+
+```js
+const msg = await fc.log.level('debug')
+console.log(msg) // "Changed log level of all subsystems to: debug"
+```
+
+Set log level for "ping" subsystem:
+
+```js
+const msg = await fc.log.level('debug', { subsystem: 'ping' })
+console.log(msg) // "Changed log level of 'ping' to 'debug'"
 ```
 
 ## `log.tail`
