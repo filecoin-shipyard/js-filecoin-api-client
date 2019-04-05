@@ -18,7 +18,7 @@ test('should set the log level for all subsystems', async t => {
 test('should set the log level for a specific subsystem', async t => {
   const level = 'error'
   const subsystem = 'ping'
-  const expectedMessage = `Changed log level of \'${subsystem}\' to \'${level}\'`
+  const expectedMessage = `Changed log level of '${subsystem}' to '${level}'`
   const fetch = url => {
     url = new URL(url)
     t.is(url.searchParams.get('arg'), level)
