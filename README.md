@@ -66,7 +66,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * dag.get
-* dht.findPeer
+* [dht.findPeer](API.md#dhtfindpeer)
 * [dht.findProvs](API.md#dhtfindprovs)
 * dht.query
 * message.send

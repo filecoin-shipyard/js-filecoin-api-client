@@ -17,7 +17,7 @@
 * [config.get](#configget)
 * [config.set](#configset)
 * dag.get
-* dht.findPeer
+* [dht.findPeer](#dhtfindpeer)
 * [dht.findProvs](#dhtfindprovs)
 * dht.query
 * message.send
@@ -446,6 +446,49 @@ console.log(value)
 
 /*
 /ip4/127.0.0.1/tcp/3453
+*/
+```
+
+## `dht.findPeer`
+
+> Find a peer given a peerId.
+
+### `dht.findPeer(peerId, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| peerId | `String` | ID of peer to find |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Multiaddr>` | Multiaddresses of a given peer. |
+
+#### Example
+
+```js
+const peers = await fc.swarm.peers()
+const peerId = peers[0].addr.getPeerId()
+
+for await (const addr of fc.dht.findPeer(peerId))
+  console.log(addr)
+
+/*
+[ <Multiaddr 04035ae6b006c34c - /ip4/3.90.230.176/tcp/49996>,
+  <Multiaddr 04035ae6b006c2fd - /ip4/3.90.230.176/tcp/49917>,
+  <Multiaddr 04035ae6b006e3be - /ip4/3.90.230.176/tcp/58302>,
+  <Multiaddr 04035ae6b006232c - /ip4/3.90.230.176/tcp/9004>,
+  <Multiaddr 04035ae6b006c2e1 - /ip4/3.90.230.176/tcp/49889>,
+  <Multiaddr 04035ae6b006c2d0 - /ip4/3.90.230.176/tcp/49872>,
+  <Multiaddr 04035ae6b006dfcc - /ip4/3.90.230.176/tcp/57292>,
+  <Multiaddr 04ac13000e062328 - /ip4/172.19.0.14/tcp/9000>,
+  <Multiaddr 04035ae6b006b461 - /ip4/3.90.230.176/tcp/46177>,
+  <Multiaddr 047f000001062328 - /ip4/127.0.0.1/tcp/9000> ]
 */
 ```
 
