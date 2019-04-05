@@ -38,7 +38,7 @@
 * mpool.show
 * [id](#id)
 * [log.level](#loglevel)
-* log.ls
+* [log.ls](#logls)
 * [log.tail](#logtail)
 * paych.close
 * paych.create
@@ -577,6 +577,97 @@ Set log level for "ping" subsystem:
 ```js
 const msg = await fc.log.level('debug', { subsystem: 'ping' })
 console.log(msg) // "Changed log level of 'ping' to 'debug'"
+```
+
+## `log.ls`
+
+> List the logging subsystems
+
+### `log.ls([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<String[]>` | The available subsystems |
+
+#### Example
+
+```js
+const subsystems = await fc.log.ls()
+console.log(subsystems)
+
+/*
+[ 'commands/log',
+  'fps',
+  'net.bootstrap',
+  'messageimpl',
+  'peerstore',
+  'swarm2',
+  'dht.pb',
+  'autorelay',
+  'engine',
+  'eventlog',
+  'blockstore',
+  'keystore',
+  'transport',
+  'types',
+  'nat',
+  'bstestnet',
+  'sectorbuilder',
+  '/fil/hello',
+  'mplex',
+  'addrutil',
+  'cmds/http',
+  'cmds/cli',
+  'autonat-svc',
+  'node',
+  'metrics',
+  'pubsub',
+  'chain.store',
+  'p2p-config',
+  'basichost',
+  'boguskey',
+  'mocknet',
+  'mockrouter',
+  'routing/record',
+  'providers',
+  'reuseport-transport',
+  'net/identify',
+  'secio',
+  'repo',
+  'ping',
+  'peerqueue',
+  'pathresolv',
+  'chain.syncer',
+  'chunk',
+  'bitswap_network',
+  'lock',
+  'stream-upgrader',
+  'tcp-tpt',
+  'relay',
+  '/fil/retrieval',
+  '/fil/storage',
+  'cmds',
+  'porcelain',
+  'discovery',
+  'table',
+  'dht',
+  'autonat',
+  'routedhost',
+  'bitswap',
+  'blockservice',
+  'consensus.expected',
+  'mqueue',
+  'mining' ]
+*/
 ```
 
 ## `log.tail`

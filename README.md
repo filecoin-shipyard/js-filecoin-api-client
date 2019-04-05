@@ -87,7 +87,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * mpool.show
 * [id](API.md#id)
 * [log.level](API.md#loglevel)
-* log.ls
+* [log.ls](API.md#logls)
 * [log.tail](API.md#logtail)
 * paych.close
 * paych.create
@@ -107,7 +107,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [wallet.export](API.md#walletexport)
 * wallet.import
 
-Status: 24/57 **42%**
+Status: 25/57 **44%**
 
 ## Contribute
 
