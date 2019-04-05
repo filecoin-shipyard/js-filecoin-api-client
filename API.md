@@ -20,6 +20,10 @@
 * [dht.findPeer](#dhtfindpeer)
 * [dht.findProvs](#dhtfindprovs)
 * dht.query
+* [id](#id)
+* [log.level](#loglevel)
+* [log.ls](#logls)
+* [log.tail](#logtail)
 * message.send
 * message.status
 * message.wait
@@ -32,14 +36,10 @@
 * miner.updatePeerId
 * mining.once
 * mining.start
-* mining.stop
+* [mining.stop](#miningstop)
 * mpool.ls
 * mpool.rm
 * mpool.show
-* [id](#id)
-* [log.level](#loglevel)
-* [log.ls](#logls)
-* [log.tail](#logtail)
 * paych.close
 * paych.create
 * paych.extend
@@ -803,6 +803,32 @@ console.log(subsystems)
 ```js
 for await (const entry of fc.log.tail())
   console.log(entry)
+```
+
+## `mining.stop`
+
+> Stop mining operations
+
+### `mining.stop([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<String>` | Confirmation message |
+
+#### Example
+
+```js
+const msg = await fc.mining.stop()
+console.log(msg) // Stopped mining
 ```
 
 ## `ping`
