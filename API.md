@@ -10,7 +10,7 @@
 * [chain.ls](#chainls)
 * [client.cat](#clientcat)
 * [client.import](#clientimport)
-* client.listAsks
+* [client.listAsks](#clientlistasks)
 * client.payments
 * client.proposeStorageDeal
 * client.queryStorageDeal
@@ -380,6 +380,40 @@ From a Node.js stream (or async iterable):
 ```js
 const data = fs.createReadStream('/path/to/file')
 const cid = await fc.client.import(data)
+```
+
+## `client.listAsks`
+
+> List all asks in the storage market
+
+### `client.listAsks([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Object>` | Storage market asks |
+
+#### Example
+
+```js
+for await (const ask of fc.client.listAsks())
+  console.log(ask)
+
+/*
+After first iteration:
+{ miner: 't2zup5a5rytwissvm6zq74amp4chrnazrl4ev4yii',
+  price: '0.00000000000001',
+  expiry: 33329,
+  id: 4 }
+*/
 ```
 
 ## `config.get`
