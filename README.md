@@ -69,6 +69,10 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [dht.findPeer](API.md#dhtfindpeer)
 * [dht.findProvs](API.md#dhtfindprovs)
 * dht.query
+* [id](API.md#id)
+* [log.level](API.md#loglevel)
+* [log.ls](API.md#logls)
+* [log.tail](API.md#logtail)
 * message.send
 * message.status
 * message.wait
@@ -81,14 +85,10 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * miner.updatePeerId
 * mining.once
 * mining.start
-* mining.stop
+* [mining.stop](API.md#miningstop)
 * mpool.ls
 * mpool.rm
 * mpool.show
-* [id](API.md#id)
-* [log.level](API.md#loglevel)
-* [log.ls](API.md#logls)
-* [log.tail](API.md#logtail)
 * paych.close
 * paych.create
 * paych.extend
@@ -107,7 +107,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [wallet.export](API.md#walletexport)
 * wallet.import
 
-Status: 28/57 **49%**
+Status: 29/57 **51%**
 
 ## Contribute
 
