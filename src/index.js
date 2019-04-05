@@ -14,7 +14,7 @@ module.exports = (fetch, config) => {
       ls: require('./cmd/actor/ls')(fetch, config)
     },
     address: {
-      default: require('./cmd/address/default')(fetch, config), 
+      default: require('./cmd/address/default')(fetch, config),
       lookup: require('./cmd/address/lookup')(fetch, config),
       ls: require('./cmd/address/ls')(fetch, config),
       new: require('./cmd/address/new')(fetch, config)
@@ -44,6 +44,9 @@ module.exports = (fetch, config) => {
     ping: require('./cmd/ping')(fetch, config),
     show: {
       block: require('./cmd/show/block')(fetch, config)
+    },
+    stats: {
+      bandwidth: require('./cmd/stats/bandwidth')(fetch, config)
     },
     swarm: {
       connect: require('./cmd/swarm/connect')(fetch, config),
