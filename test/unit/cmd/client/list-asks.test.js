@@ -1,5 +1,4 @@
 const test = require('ava')
-const CID = require('cids')
 const Filecoin = require('../../../../src')
 const { toAsyncIterable } = require('../../../helpers/iterable')
 const Fixtures = require('./list-asks.fixtures.json')
