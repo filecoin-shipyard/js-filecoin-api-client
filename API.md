@@ -50,7 +50,7 @@
 * [ping](#ping)
 * retrievalClient.retrievePiece
 * [show.block](#showblock)
-* stats.bandwidth
+* [stats.bandwidth](#statsbandwidth)
 * [swarm.connect](#swarmconnect)
 * [swarm.peers](#swarmpeers)
 * [version](#version)
@@ -653,6 +653,39 @@ console.log(block)
      0,
      0,
      ... 92 more items ] }
+*/
+```
+
+## `stats.bandwidth`
+
+> Get bandwidth usage statistics
+
+### `stats.bandwidth([options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | Current bandwidth usage stats |
+
+#### Example
+
+```js
+const stats = await fc.stats.bandwidth()
+console.log(stats)
+
+/*
+{ totalIn: 7962607306,
+  totalOut: 5437567180,
+  rateIn: 1757169.0307054976,
+  rateOut: 1066315.9253809578 }
 */
 ```
 
