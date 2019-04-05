@@ -16,13 +16,8 @@
 * client.queryStorageDeal
 * [config.get](#configget)
 * [config.set](#configset)
-<<<<<<< HEAD
-* dag.get
-* [dht.findPeer](#dhtfindpeer)
-=======
 * [dag.get](#dagget)
-* dht.findPeer
->>>>>>> docs: add API docs for dag.get
+* [dht.findPeer](#dhtfindpeer)
 * [dht.findProvs](#dhtfindprovs)
 * dht.query
 * message.send
