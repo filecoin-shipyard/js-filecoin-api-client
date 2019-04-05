@@ -1,5 +1,4 @@
 const test = require('ava')
-const CID = require('cids')
 const Filecoin = require('../helpers/filecoin')
 
 test('should set the log level for all subsystems', async t => {
