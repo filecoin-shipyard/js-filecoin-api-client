@@ -1,6 +1,7 @@
 # API
 
 * [actor.ls](#actorls)
+* address.default
 * [address.lookup](#addresslookup)
 * [address.ls](#addressls)
 * [address.new](#addressnew)
@@ -16,8 +17,11 @@
 * [config.get](#configget)
 * [config.set](#configset)
 * dag.get
+* dht.findPeer
 * [dht.findProvs](#dhtfindprovs)
+* dht.query
 * message.send
+* message.status
 * message.wait
 * miner.addAsk
 * miner.create
@@ -33,6 +37,8 @@
 * mpool.rm
 * mpool.show
 * [id](#id)
+* log.level
+* log.ls
 * [log.tail](#logtail)
 * paych.close
 * paych.create
@@ -44,8 +50,8 @@
 * [ping](#ping)
 * retrievalClient.retrievePiece
 * [show.block](#showblock)
+* stats.bandwidth
 * [swarm.connect](#swarmconnect)
-* swarm.findPeer
 * [swarm.peers](#swarmpeers)
 * [version](#version)
 * [wallet.balance](#walletbalance)

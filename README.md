@@ -50,6 +50,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 ## API
 
 * [actor.ls](API.md#actorls)
+* address.default
 * [address.lookup](API.md#addresslookup)
 * [address.ls](API.md#addressls)
 * [address.new](API.md#addressnew)
@@ -65,8 +66,11 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * dag.get
+* dht.findPeer
 * [dht.findProvs](API.md#dhtfindprovs)
+* dht.query
 * message.send
+* message.status
 * message.wait
 * miner.addAsk
 * miner.create
@@ -82,6 +86,8 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * mpool.rm
 * mpool.show
 * [id](API.md#id)
+* log.level
+* log.ls
 * [log.tail](API.md#logtail)
 * paych.close
 * paych.create
@@ -93,8 +99,8 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [ping](API.md#ping)
 * retrievalClient.retrievePiece
 * [show.block](API.md#showblock)
+* stats.bandwidth
 * [swarm.connect](API.md#swarmconnect)
-* swarm.findPeer
 * [swarm.peers](API.md#swarmpeers)
 * [version](API.md#version)
 * [wallet.balance](API.md#walletbalance)
