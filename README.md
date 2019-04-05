@@ -59,7 +59,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [chain.ls](API.md#chainls)
 * [client.cat](API.md#clientcat)
 * [client.import](API.md#clientimport)
-* client.listAsks
+* [client.listAsks](API.md#clientlistasks)
 * client.payments
 * client.proposeStorageDeal
 * client.queryStorageDeal
@@ -107,7 +107,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [wallet.export](API.md#walletexport)
 * wallet.import
 
-Status: 25/57 **44%**
+Status: 26/57 **46%**
 
 ## Contribute
 

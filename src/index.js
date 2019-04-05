@@ -28,7 +28,8 @@ module.exports = (fetch, config) => {
     },
     client: {
       cat: require('./cmd/client/cat')(fetch, config),
-      import: require('./cmd/client/import')(fetch, config)
+      import: require('./cmd/client/import')(fetch, config),
+      listAsks: require('./cmd/client/list-asks')(fetch, config)
     },
     config: {
       get: require('./cmd/config/get')(fetch, config),
