@@ -14,6 +14,7 @@ module.exports = (fetch, config) => {
       ls: require('./cmd/actor/ls')(fetch, config)
     },
     address: {
+      default: require('./cmd/address/default')(fetch, config), 
       lookup: require('./cmd/address/lookup')(fetch, config),
       ls: require('./cmd/address/ls')(fetch, config),
       new: require('./cmd/address/new')(fetch, config)

@@ -17,7 +17,7 @@ module.exports = (fetch, config) => {
     const res = await ok(fetch(url, { signal: options.signal }))
 
     for await (const pong of ndjson(toIterable(res.body))) {
-      yield { time: pong.Time, text: pong.Text, success: pong.Success }
+      yield { count: pong.Count, time: pong.Time }
     }
   })()
 }
