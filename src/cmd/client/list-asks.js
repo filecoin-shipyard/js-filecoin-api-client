@@ -1,6 +1,4 @@
 const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
-const explain = require('explain-error')
 const { ok, toIterable } = require('../../lib/fetch')
 const ndjson = require('iterable-ndjson')
 

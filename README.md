@@ -65,7 +65,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * client.queryStorageDeal
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
-* dag.get
+* [dag.get](API.md#dagget)
 * [dht.findPeer](API.md#dhtfindpeer)
 * [dht.findProvs](API.md#dhtfindprovs)
 * dht.query
@@ -107,7 +107,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [wallet.export](API.md#walletexport)
 * wallet.import
 
-Status: 26/57 **46%**
+Status: 28/57 **49%**
 
 ## Contribute
 

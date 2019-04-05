@@ -16,7 +16,7 @@
 * client.queryStorageDeal
 * [config.get](#configget)
 * [config.set](#configset)
-* dag.get
+* [dag.get](#dagget)
 * [dht.findPeer](#dhtfindpeer)
 * [dht.findProvs](#dhtfindprovs)
 * dht.query
@@ -481,6 +481,38 @@ console.log(value)
 /*
 /ip4/127.0.0.1/tcp/3453
 */
+```
+
+## `dag.get`
+
+> Get a DAG node by its CID
+
+### `dag.get(cid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| cid | `CID`\|`String` | CID of the DAG node to get |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object\|Buffer\|Blob>` | The DAG node. If the server returns `Content-Type: 'application/json'` then the response is parsed into a JS object. Otherwise the raw `Buffer` (in Node.js) or `Blob` (in the browser) are returned. |
+
+#### Example
+
+```js
+const UnixFs = require('ipfs-unixfs')
+const input = Buffer.from('Hello World!')
+const cid = await fc.client.import(input)
+const node = await fc.dag.get(cid)
+// Extract the raw data from the UnixFs DAG node
+const output = UnixFs.unmarshal(Buffer.from(output.data, 'base64')).data
+console.log(output.toString()) // Hello World!
 ```
 
 ## `dht.findPeer`

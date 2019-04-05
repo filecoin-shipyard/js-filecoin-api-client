@@ -5,7 +5,7 @@ test('should list asks', async t => {
   const fc = Filecoin()
 
   let i = 0
-  for await (ask of fc.client.listAsks()) {
+  for await (const ask of fc.client.listAsks()) {
     if (!ask.error) {
       t.true(typeof ask.id === 'number')
       t.true(typeof ask.miner === 'string')
