@@ -25,6 +25,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "abort-controller": "^3.0.0",
     "ava": "^2.2.0",
     "cids": "^0.7.1",
     "ipfs-unixfs": "^0.1.16",
