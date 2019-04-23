@@ -641,7 +641,7 @@ Example iteration output:
 
 ```js
 const { id, addresses } = await fc.id()
-console.log({ id: id.toStrng(), addresses: addresses.map(a => a.toString()) })
+console.log({ id: id.toString(), addresses: addresses.map(a => a.toString()) })
 
 /*
 { id: 'QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
