@@ -1,4 +1,4 @@
-const toUri = require('multiaddr-to-uri')
+const toUri = require('../../../src/lib/multiaddr-to-uri')
 const fetch = require('node-fetch')
 const FormData = require('form-data')
 const CID = require('cids')
