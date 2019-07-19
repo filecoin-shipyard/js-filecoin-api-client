@@ -1,9 +1,7 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
-const Multiaddr = require('multiaddr')
-const { ok, toIterable } = require('../../lib/fetch')
 const ndjson = require('iterable-ndjson')
 const QueryString = require('querystring')
+const toUri = require('../../lib/multiaddr-to-uri')
+const { ok, toIterable } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
   return (key, options) => (async function * () {
@@ -22,13 +20,13 @@ module.exports = (fetch, config) => {
       const prov = {
         type: peer.Type,
         responses: (peer.Responses || []).map(r => ({
-          id: new CID(r.ID),
-          addrs: (r.Addrs || []).map(a => Multiaddr(a))
+          id: r.ID,
+          addrs: r.Addrs || []
         }))
       }
 
       if (peer.ID) {
-        prov.id = new CID(peer.ID)
+        prov.id = peer.ID
       }
 
       if (peer.Extra) {

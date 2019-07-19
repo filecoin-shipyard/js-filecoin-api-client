@@ -1,8 +1,6 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
-const explain = require('explain-error')
-const { ok, toIterable } = require('../../lib/fetch')
 const ndjson = require('iterable-ndjson')
+const toUri = require('../../lib/multiaddr-to-uri')
+const { ok, toIterable } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
   return options => (async function * () {
@@ -14,22 +12,11 @@ module.exports = (fetch, config) => {
     for await (const block of ndjson(toIterable(res.body))) {
       yield block.map(b => {
         if (Array.isArray(b.parents)) {
-          b.parents = b.parents.map(p => {
-            try {
-              return new CID(p['/'])
-            } catch (err) {
-              console.warn(explain(err, 'failed to convert parent CID'))
-              return p
-            }
-          })
+          b.parents = b.parents.map(p => p['/'])
         }
 
         if (b.stateRoot) {
-          try {
-            b.stateRoot = new CID(b.stateRoot['/'])
-          } catch (err) {
-            console.warn(explain(err, 'failed to convert state root CID'))
-          }
+          b.stateRoot = b.stateRoot['/']
         }
 
         return b

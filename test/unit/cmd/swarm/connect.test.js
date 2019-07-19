@@ -1,5 +1,4 @@
 const test = require('ava')
-const CID = require('cids')
 const Filecoin = require('../../../../src')
 
 test('should connect to an address', async t => {
@@ -19,8 +18,7 @@ test('should connect to an address', async t => {
 
   res.forEach((p, i) => {
     t.is(Object.keys(p).length, 2)
-    t.true(CID.isCID(p.peer))
-    t.is(p.peer.toString(), data[i].Peer)
+    t.is(p.peer, data[i].Peer)
     t.is(p.success, data[i].Success)
   })
 })
@@ -49,8 +47,7 @@ test('should connect to multiple addresses', async t => {
 
   res.forEach((p, i) => {
     t.is(Object.keys(p).length, 2)
-    t.true(CID.isCID(p.peer))
-    t.is(p.peer.toString(), data[i].Peer)
+    t.is(p.peer, data[i].Peer)
     t.is(p.success, data[i].Success)
   })
 })

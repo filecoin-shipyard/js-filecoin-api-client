@@ -49,7 +49,7 @@ module.exports = (fetch, config) => {
       tail: require('./cmd/log/tail')(fetch, config)
     },
     mining: {
-      stop: require('./cmd/mining/stop')(fetch, config),
+      stop: require('./cmd/mining/stop')(fetch, config)
     },
     ping: require('./cmd/ping')(fetch, config),
     show: {

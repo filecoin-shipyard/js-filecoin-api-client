@@ -1,6 +1,5 @@
-const toUri = require('multiaddr-to-uri')
-const Multiaddr = require('multiaddr')
 const QueryString = require('querystring')
+const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
@@ -25,7 +24,7 @@ module.exports = (fetch, config) => {
     const data = await res.json()
 
     return (data.Peers || []).map(p => {
-      const peerInfo = { addr: Multiaddr(p.Addr).encapsulate(`/ipfs/${p.Peer}`) }
+      const peerInfo = { addr: p.Addr, peer: p.Peer }
 
       if (options.verbose || options.streams) {
         peerInfo.streams = (p.Streams || []).map(s => ({ protocol: s.Protocol }))

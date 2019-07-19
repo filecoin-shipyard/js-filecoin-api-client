@@ -1,8 +1,6 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
-const explain = require('explain-error')
-const { ok, toIterable } = require('../../lib/fetch')
 const ndjson = require('iterable-ndjson')
+const toUri = require('../../lib/multiaddr-to-uri')
+const { ok, toIterable } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
   return options => (async function * () {
@@ -13,19 +11,11 @@ module.exports = (fetch, config) => {
 
     for await (const actor of ndjson(toIterable(res.body))) {
       if (actor.code) {
-        try {
-          actor.code = new CID(actor.code['/'])
-        } catch (err) {
-          console.warn(explain(err, 'failed to convert actor code CID'))
-        }
+        actor.code = actor.code['/']
       }
 
       if (actor.head) {
-        try {
-          actor.head = new CID(actor.head['/'])
-        } catch (err) {
-          console.warn(explain(err, 'failed to convert actor head CID'))
-        }
+        actor.head = actor.head['/']
       }
 
       yield actor

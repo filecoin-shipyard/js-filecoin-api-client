@@ -1,4 +1,4 @@
-const toUri = require('multiaddr-to-uri')
+const toUri = require('../../lib/multiaddr-to-uri')
 const explain = require('explain-error')
 const QueryString = require('querystring')
 const { ok } = require('../../lib/fetch')

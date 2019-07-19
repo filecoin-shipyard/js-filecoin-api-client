@@ -6,6 +6,6 @@ test('should get id', async t => {
   const fc = Filecoin()
   const res = await fc.id()
 
-  t.true(CID.isCID(res.id))
+  t.notThrows(() => new CID(res.id))
   t.true(Array.isArray(res.addresses))
 })

@@ -40,7 +40,7 @@ test('should deserialize actor head CID', async t => {
   for await (const actor of fc.actor.ls()) actors.push(actor)
 
   expectedActors.forEach((expectedActor, i) => {
-    t.true(CID.isCID(actors[i].head))
+    t.notThrows(() => new CID(actors[i].head))
     t.is(actors[i].head.toString(), expectedActor.head['/'])
   })
 })
@@ -59,7 +59,7 @@ test('should deserialize actor code CID', async t => {
   for await (const actor of fc.actor.ls()) actors.push(actor)
 
   expectedActors.forEach((expectedActor, i) => {
-    t.true(CID.isCID(actors[i].code))
+    t.notThrows(() => new CID(actors[i].code))
     t.is(actors[i].code.toString(), expectedActor.code['/'])
   })
 })

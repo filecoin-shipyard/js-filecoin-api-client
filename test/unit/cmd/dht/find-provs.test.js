@@ -1,5 +1,4 @@
 const test = require('ava')
-const CID = require('cids')
 const Multiaddr = require('multiaddr')
 const Filecoin = require('../../../../src')
 const { toAsyncIterable } = require('../../../helpers/iterable')
@@ -15,18 +14,16 @@ test('should find providers', async t => {
   let i = 0
   for await (const peer of fc.dht.findProvs('QmbFMke1KXqnYyBBWxB74N4c5SBnJMVAiMNRcGu6x1AwQH')) {
     if (peer.id) {
-      t.true(CID.isCID(peer.id))
-      t.is(peer.id.toString(), Fixtures.sample0[i].ID)
+      t.is(peer.id, Fixtures.sample0[i].ID)
     }
 
     t.true(typeof peer.type === 'number')
     t.is(peer.type, Fixtures.sample0[i].Type)
 
     peer.responses.forEach((r, j) => {
-      t.true(CID.isCID(r.id))
-      t.is(r.id.toString(), Fixtures.sample0[i].Responses[j].ID)
+      t.is(r.id, Fixtures.sample0[i].Responses[j].ID)
       r.addrs.forEach((a, k) => {
-        t.true(Multiaddr.isMultiaddr(a))
+        t.notThrows(() => Multiaddr(a))
         t.is(a.toString(), Fixtures.sample0[i].Responses[j].Addrs[k])
       })
     })
