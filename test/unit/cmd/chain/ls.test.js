@@ -38,7 +38,7 @@ test('should deserialize parent CIDs', async t => {
   expectedBlocks.forEach((expectedBlock, i) => {
     expectedBlock.forEach((expectedHead, j) => {
       expectedHead.parents.forEach((expectedParent, k) => {
-        t.true(CID.isCID(blocks[i][j].parents[k]))
+        t.notThrows(() => new CID(blocks[i][j].parents[k]))
         t.is(blocks[i][j].parents[k].toString(), expectedParent['/'])
       })
     })
@@ -63,7 +63,7 @@ test('should deserialize state root CID', async t => {
 
   expectedBlocks.forEach((expectedBlock, i) => {
     expectedBlock.forEach((expectedHead, j) => {
-      t.true(CID.isCID(blocks[i][j].stateRoot))
+      t.notThrows(() => new CID(blocks[i][j].stateRoot))
       t.is(blocks[i][j].stateRoot.toString(), expectedHead.stateRoot['/'])
     })
   })

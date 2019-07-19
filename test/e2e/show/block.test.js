@@ -8,5 +8,5 @@ test('should show block info', async t => {
   const block = await fc.show.block(cid)
 
   t.truthy(block)
-  t.true(CID.isCID(block.stateRoot))
+  t.notThrows(() => new CID(block.stateRoot))
 })

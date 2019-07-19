@@ -1,5 +1,4 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
+const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
@@ -8,6 +7,6 @@ module.exports = (fetch, config) => {
     const url = `${toUri(config.apiAddr)}/api/chain/head`
     const res = await ok(fetch(url, { signal: options.signal }))
     const heads = await res.json()
-    return heads.map(h => new CID(h['/']))
+    return heads.map(h => h['/'])
   }
 }

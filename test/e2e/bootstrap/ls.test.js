@@ -7,5 +7,5 @@ test('should list bootstrap node addresses', async t => {
 
   const addrs = await fc.bootstrap.ls()
   t.true(Array.isArray(addrs))
-  addrs.forEach(a => t.true(Multiaddr.isMultiaddr(a)))
+  addrs.forEach(a => t.notThrows(() => Multiaddr(a)))
 })

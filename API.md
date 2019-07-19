@@ -87,12 +87,7 @@ for await (const actor of fc.actor.ls())
 After first iteration:
 { actorType: 'MinerActor',
   address: 'fcqpdd3end3j5hhu7lacxg4vnluu9rxfd3nteezw6',
-  code:
-   CID {
-     codec: 'raw',
-     version: 1,
-     multihash:
-      <Buffer 12 20 6e db 35 14 a9 48 c5 1e 7e 0d cc 3f 86 bb 15 42 43 fa b4 54 86 f9 6d dc be bd d7 57 e6 37 35 26> },
+  code: 'zb2rhmciMRS4PBXYBBHssphYKQrbFujVjj1SMyUyN2bU2SKFx',
   nonce: 0,
   balance: '100',
   exports:
@@ -106,12 +101,7 @@ After first iteration:
      getProvingPeriodStart: { Params: [], Return: [Array] },
      submitPoSt: { Params: [Array], Return: [] },
      updatePeerID: { Params: [Array], Return: [] } },
-  head:
-   CID {
-     codec: 'dag-cbor',
-     version: 1,
-     multihash:
-      <Buffer a0 e4 02 20 7c 25 c7 49 04 93 28 60 45 69 05 30 1f cd 10 ba d8 5d b6 85 b9 e1 37 7f 6e c5 2a 70 b8 cf 67 bf> } }
+  head: 'zDPWYqFD5LSWY8NQR7hWtLU8arYBw6W9eXZ1VvWjzh8YUJfAshx4'
 */
 ```
 
@@ -230,13 +220,13 @@ console.log(addr) // fcq7kwnm7mqaynhngfl6qtp03p6jxmyda62zagfek
 
 | Type | Description |
 |------|-------------|
-| `Promise<Multiaddr[]>` | List of bootstrap [multiaddrs](https://github.com/multiformats/js-multiaddr) |
+| `Promise<String[]>` | List of bootstrap [multiaddrs](https://github.com/multiformats/js-multiaddr) |
 
 #### Example
 
 ```js
 const addrs = await fc.boostrap.ls()
-console.log(addrs.map(a => a.toString()))
+console.log(addrs)
 
 /*
 [ '/dns4/test.kittyhawk.wtf/tcp/9001/ipfs/QmXq6XEYeEmUzBFuuKbVEGgxEpVD4xbSkG2Rhek6zkFMp4',
@@ -263,13 +253,13 @@ console.log(addrs.map(a => a.toString()))
 
 | Type | Description |
 |------|-------------|
-| `Promise<CID[]>` | Array of [CID](https://github.com/ipld/js-cid/) objects |
+| `Promise<String[]>` | Array of String CIDs |
 
 #### Example
 
 ```js
 const block = await fc.chain.head()
-console.log(block.map(cid => cid.toString()))
+console.log(block)
 // [ 'zDPWYqFCrhCRdGa1Z84DBpSQ5rrHphwjs7qHe5uS2LFurdnE6vvF' ]
 ```
 
@@ -302,18 +292,13 @@ for await (const block of fc.chain.ls())
 After first iteration:
 [ { miner: 'fcq5y65n23xdkcx2ymakflxpxqhkvewnwswp0me52',
     ticket: 'BNdhwXA6ty/KdYJ3YY/gZ1CexKRXsDYOpBq0wbK+/kA=',
-    parents: [ [CID] ],
+    parents: [ [String] ],
     parentWeightNumerator: 'y8q87bOQCQ==',
     parentWeightDenominator: 'xpSakwY=',
     height: '6hU=',
     nonce: 'AA==',
     messages: [ [Object] ],
-    stateRoot:
-     CID {
-       codec: 'dag-cbor',
-       version: 1,
-       multihash:
-        <Buffer 12 20 22 98 70 56 ae fd bd 3c 46 d9 8e 08 bf 62 8a fb 4e e3 81 73 6f 95 77 d4 48 ec e9 d6 16 a4 db ef> },
+    stateRoot: 'zDPWYqFD5LSWY8NQR7hWtLU8arYBw6W9eXZ1VvWjzh8YUJfAshx4',
     messageReceipts: [ [Object] ] } ]
 */
 ```
@@ -364,7 +349,7 @@ for await (const chunk of fc.client.cat('QmZPUUg1QVMciR1yYnC2HSFrXyAUwRvpnbx4haY
 
 | Type | Description |
 |------|-------------|
-| `Promise<CID>` | CID of the imported content |
+| `Promise<String>` | CID of the imported content |
 
 #### Example
 
@@ -533,7 +518,7 @@ console.log(output.toString()) // Hello World!
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Multiaddr>` | Multiaddresses of a given peer. |
+| `AsyncIterable<String>` | Multiaddresses of a given peer. |
 
 #### Example
 
@@ -545,16 +530,16 @@ for await (const addr of fc.dht.findPeer(peerId))
   console.log(addr)
 
 /*
-[ <Multiaddr 04035ae6b006c34c - /ip4/3.90.230.176/tcp/49996>,
-  <Multiaddr 04035ae6b006c2fd - /ip4/3.90.230.176/tcp/49917>,
-  <Multiaddr 04035ae6b006e3be - /ip4/3.90.230.176/tcp/58302>,
-  <Multiaddr 04035ae6b006232c - /ip4/3.90.230.176/tcp/9004>,
-  <Multiaddr 04035ae6b006c2e1 - /ip4/3.90.230.176/tcp/49889>,
-  <Multiaddr 04035ae6b006c2d0 - /ip4/3.90.230.176/tcp/49872>,
-  <Multiaddr 04035ae6b006dfcc - /ip4/3.90.230.176/tcp/57292>,
-  <Multiaddr 04ac13000e062328 - /ip4/172.19.0.14/tcp/9000>,
-  <Multiaddr 04035ae6b006b461 - /ip4/3.90.230.176/tcp/46177>,
-  <Multiaddr 047f000001062328 - /ip4/127.0.0.1/tcp/9000> ]
+[ '/ip4/3.90.230.176/tcp/49996',
+  '/ip4/3.90.230.176/tcp/49917',
+  '/ip4/3.90.230.176/tcp/58302',
+  '/ip4/3.90.230.176/tcp/9004',
+  '/ip4/3.90.230.176/tcp/49889',
+  '/ip4/3.90.230.176/tcp/49872',
+  '/ip4/3.90.230.176/tcp/57292',
+  '/ip4/172.19.0.14/tcp/9000',
+  '/ip4/3.90.230.176/tcp/46177',
+  '/ip4/127.0.0.1/tcp/9000'
 */
 ```
 
@@ -589,32 +574,27 @@ for await (const res of fc.dht.findProvs('QmbFMke1KXqnYyBBWxB74N4c5SBnJMVAiMNRcG
 Example iteration output:
 { type: 1,
   responses:
-   [ { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] },
-     { id: [CID], addrs: [Array] } ],
-  id:
-   CID {
-     codec: 'dag-pb',
-     version: 0,
-     multihash:
-      <Buffer 12 20 80 ac 25 a4 a1 64 ee 3f 84 13 d1 a3 a7 7b ab fc b8 eb ef 7f 98 99 81 28 e1 0b 00 9f da 99 7e f0> } }
+   [ { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] },
+     { id: [String], addrs: [Array] } ],
+  id: 'QmRCrwBopruk3dihfu9njyZ2J88VvCJG4JEnmhNku47RCR'
 */
 ```
 
@@ -635,13 +615,13 @@ Example iteration output:
 
 | Type | Description |
 |------|-------------|
-| `Promise<{ id<CID>, addresses<Multiaddr[]> }>` | TODO describe return value |
+| `Promise<{ id<String>, addresses<String[]> }>` | TODO describe return value |
 
 #### Example
 
 ```js
 const { id, addresses } = await fc.id()
-console.log({ id: id.toString(), addresses: addresses.map(a => a.toString()) })
+console.log({ id, addresses })
 
 /*
 { id: 'QmVESp5X5EtRXGrDBqHzZ1Hd22nSh5QLtw8BozGNu9dWef',
@@ -896,17 +876,12 @@ console.log(block)
 /*
 { miner: '',
   ticket: null,
-  parents: null,
+  parents: 'zDPWYqFCtf5awkxnZbpurnQFvsrafnv4nJbP8UkAHD8GCf8T2Sz4',
   parentWeight: 'AA==',
   height: 'AA==',
   nonce: 'AA==',
   messages: null,
-  stateRoot:
-   CID {
-     codec: 'dag-cbor',
-     version: 1,
-     multihash:
-      <Buffer 12 20 14 7a 88 87 36 57 34 05 49 9d 46 d3 3e 7f fa 95 3e 36 9e 84 b3 8a c8 52 8f 99 7f fb f6 d9 de 84> },
+  stateRoot: 'zdpuAm8mTU17dB5mckEDSNXFtvuxVESUhKivSLCWw1kMZjdK9',
   messageReceipts: null,
   proof:
    [ 0,
@@ -976,7 +951,7 @@ console.log(stats)
 
 ```js
 const res = await fc.swarm.connect('/ip4/192.168.1.1/tcp/6000/ipfs/QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK')
-console.log(res.map(p => ({ ...p, peer: p.peer.toString() })))
+console.log(res)
 
 /*
 [ { peer: 'QmQbd6WxZ3pwcwWn21MvgH1zH4m8hk148kTfoB6BNFa5hK',

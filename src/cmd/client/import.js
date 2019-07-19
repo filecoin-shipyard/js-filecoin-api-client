@@ -1,5 +1,4 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
+const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 const { toFormData } = require('../../lib/form-data')
 
@@ -15,6 +14,6 @@ module.exports = (fetch, config) => {
     }))
 
     const data = await res.json()
-    return new CID(data['/'])
+    return data['/']
   }
 }

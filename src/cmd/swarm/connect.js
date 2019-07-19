@@ -1,6 +1,5 @@
-const toUri = require('multiaddr-to-uri')
-const CID = require('cids')
 const QueryString = require('querystring')
+const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
@@ -15,7 +14,7 @@ module.exports = (fetch, config) => {
     const data = await res.json()
 
     return (data || []).map(({ Peer, Success }) => ({
-      peer: new CID(Peer),
+      peer: Peer,
       success: Success
     }))
   }

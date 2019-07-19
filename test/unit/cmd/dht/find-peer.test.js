@@ -13,7 +13,7 @@ test('should find multiaddrs of peer', async t => {
 
   let i = 0
   for await (const addr of fc.dht.findPeer('QmWLtQBDSFpfeD3k23rYhsQ8cS7a4WCRNHWz9UvrsaT2UE')) {
-    t.true(Multiaddr.isMultiaddr(addr))
+    t.notThrows(() => Multiaddr(addr))
     t.is(addr.toString(), Fixtures.sample0[i])
 
     i++

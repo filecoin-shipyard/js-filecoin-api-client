@@ -7,5 +7,5 @@ test('should list swarm peers', async t => {
   const peers = await fc.swarm.peers()
 
   t.true(Array.isArray(peers))
-  peers.forEach(p => t.true(Multiaddr.isMultiaddr(p.addr)))
+  peers.forEach(p => t.notThrows(() => Multiaddr(p.addr)))
 })

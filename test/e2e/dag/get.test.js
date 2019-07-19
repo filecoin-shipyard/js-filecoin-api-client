@@ -9,7 +9,7 @@ test('should get a DAG node', async t => {
   const input = randomBytes(256)
 
   const cid = await fc.client.import(input)
-  t.true(CID.isCID(cid))
+  t.notThrows(() => new CID(cid))
 
   const node = await fc.dag.get(cid)
   const meta = UnixFs.unmarshal(Buffer.from(node.data, 'base64'))

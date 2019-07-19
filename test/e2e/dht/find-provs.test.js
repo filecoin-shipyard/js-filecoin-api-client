@@ -12,16 +12,16 @@ test('should find providers', async t => {
 
   for await (const peer of fc.dht.findProvs(cid, { numProviders: 1 })) {
     if (peer.id) {
-      t.true(CID.isCID(peer.id))
+      t.notThrows(() => new CID(peer.id))
     }
 
     t.true(typeof peer.type === 'number')
 
     peer.responses.forEach((r, j) => {
-      t.true(CID.isCID(r.id))
+      t.notThrows(() => new CID(r.id))
 
       r.addrs.forEach((a, k) => {
-        t.true(Multiaddr.isMultiaddr(a))
+        t.notThrows(() => Multiaddr(a))
       })
     })
 

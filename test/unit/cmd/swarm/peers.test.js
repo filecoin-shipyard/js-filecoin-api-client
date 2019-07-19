@@ -1,5 +1,4 @@
 const test = require('ava')
-const Multiaddr = require('multiaddr')
 const Filecoin = require('../../../../src')
 
 test('should list swarm peers', async t => {
@@ -22,9 +21,9 @@ test('should list swarm peers', async t => {
   t.is(peers.length, 1)
 
   peers.forEach((p, i) => {
-    t.is(Object.keys(p).length, 1)
-    t.true(Multiaddr.isMultiaddr(p.addr))
-    t.is(p.addr.toString(), data.Peers[i].Addr + '/ipfs/' + data.Peers[i].Peer)
+    t.is(Object.keys(p).length, 2)
+    t.is(p.addr, data.Peers[i].Addr)
+    t.is(p.peer, data.Peers[i].Peer)
   })
 })
 
@@ -55,9 +54,9 @@ test('should list swarm peers with verbose option', async t => {
   t.is(peers.length, 1)
 
   peers.forEach((p, i) => {
-    t.is(Object.keys(p).length, 4)
-    t.true(Multiaddr.isMultiaddr(p.addr))
-    t.is(p.addr.toString(), data.Peers[i].Addr + '/ipfs/' + data.Peers[i].Peer)
+    t.is(Object.keys(p).length, 5)
+    t.is(p.addr, data.Peers[i].Addr)
+    t.is(p.peer, data.Peers[i].Peer)
     t.is(p.latency, data.Peers[i].Latency)
     t.is(p.muxer, data.Peers[i].Muxer)
     t.true(Array.isArray(p.streams))
@@ -92,9 +91,9 @@ test('should list swarm peers with streams option', async t => {
   t.is(peers.length, 1)
 
   peers.forEach((p, i) => {
-    t.is(Object.keys(p).length, 2)
-    t.true(Multiaddr.isMultiaddr(p.addr))
-    t.is(p.addr.toString(), data.Peers[i].Addr + '/ipfs/' + data.Peers[i].Peer)
+    t.is(Object.keys(p).length, 3)
+    t.is(p.addr, data.Peers[i].Addr)
+    t.is(p.peer, data.Peers[i].Peer)
     t.true(Array.isArray(p.streams))
     t.true(p.streams.every((s, j) => s.protocol === data.Peers[i].Streams[j].Protocol))
   })
@@ -120,9 +119,9 @@ test('should list swarm peers with latency option', async t => {
   t.is(peers.length, 1)
 
   peers.forEach((p, i) => {
-    t.is(Object.keys(p).length, 2)
-    t.true(Multiaddr.isMultiaddr(p.addr))
-    t.is(p.addr.toString(), data.Peers[i].Addr + '/ipfs/' + data.Peers[i].Peer)
+    t.is(Object.keys(p).length, 3)
+    t.is(p.addr, data.Peers[i].Addr)
+    t.is(p.peer, data.Peers[i].Peer)
     t.is(p.latency, data.Peers[i].Latency)
   })
 })

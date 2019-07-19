@@ -1,4 +1,4 @@
-const toUri = require('multiaddr-to-uri')
+const toUri = require('../../lib/multiaddr-to-uri')
 const { ok, toIterable } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
