@@ -2,6 +2,7 @@ const toUri = require('../lib/multiaddr-to-uri')
 const ndjson = require('iterable-ndjson')
 const QueryString = require('querystring')
 const { ok, toIterable } = require('../lib/fetch')
+const toCamel = require('../lib/to-camel')
 
 module.exports = (fetch, config) => {
   return (peerId, options) => (async function * () {
@@ -17,7 +18,7 @@ module.exports = (fetch, config) => {
     const res = await ok(fetch(url, { signal: options.signal }))
 
     for await (const pong of ndjson(toIterable(res.body))) {
-      yield { count: pong.Count, time: pong.Time }
+      yield toCamel(pong)
     }
   })()
 }

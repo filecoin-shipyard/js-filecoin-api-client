@@ -3,13 +3,21 @@ const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
-  return async (pledge, collateral, options) => {
+  return async (collateral, options) => {
     options = options || {}
 
-    const qs = { arg: [pledge, collateral] }
+    const qs = { arg: collateral }
 
     if (options.from != null) {
       qs.from = options.from
+    }
+
+    if (options.gasLimit != null) {
+      qs['gas-limit'] = options.gasLimit
+    }
+
+    if (options.gasPrice != null) {
+      qs['gas-price'] = options.gasPrice
     }
 
     if (options.peerId != null) {
@@ -20,17 +28,12 @@ module.exports = (fetch, config) => {
       qs.preview = options.preview
     }
 
-    if (options.gasPrice != null) {
-      qs['gas-price'] = options.gasPrice
-    }
-
-    if (options.gasLimit != null) {
-      qs['gas-limit'] = options.gasLimit
+    if (options.sectorSize != null) {
+      qs.sectorsize = options.sectorSize
     }
 
     const url = `${toUri(config.apiAddr)}/api/miner/create?${QueryString.stringify(qs)}`
     const res = await ok(fetch(url, { signal: options.signal }))
-    const data = await res.json()
-    return data
+    return res.json()
   }
 }

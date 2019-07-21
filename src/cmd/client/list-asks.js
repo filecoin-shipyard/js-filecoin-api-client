@@ -1,6 +1,7 @@
+const ndjson = require('iterable-ndjson')
 const toUri = require('../../lib/multiaddr-to-uri')
 const { ok, toIterable } = require('../../lib/fetch')
-const ndjson = require('iterable-ndjson')
+const toCamel = require('../../lib/to-camel')
 
 module.exports = (fetch, config) => {
   return options => (async function * () {
@@ -9,10 +10,8 @@ module.exports = (fetch, config) => {
     const url = toUri(config.apiAddr) + '/api/client/list-asks'
     const res = await ok(fetch(url, { signal: options.signal }))
 
-    for await (const { Miner, Price, Expiry, ID, Error } of ndjson(toIterable(res.body))) {
-      yield Error
-        ? { error: Error }
-        : { miner: Miner, price: Price, expiry: Expiry, id: ID }
+    for await (const ask of ndjson(toIterable(res.body))) {
+      yield toCamel(ask)
     }
   })()
 }

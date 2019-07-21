@@ -1,6 +1,7 @@
 const QueryString = require('querystring')
 const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
+const toCamel = require('../../lib/to-camel')
 
 module.exports = (fetch, config) => {
   return async options => {
@@ -27,7 +28,7 @@ module.exports = (fetch, config) => {
       const peerInfo = { addr: p.Addr, peer: p.Peer }
 
       if (options.verbose || options.streams) {
-        peerInfo.streams = (p.Streams || []).map(s => ({ protocol: s.Protocol }))
+        peerInfo.streams = (p.Streams || []).map(toCamel)
       }
 
       if (options.verbose || options.latency) {
