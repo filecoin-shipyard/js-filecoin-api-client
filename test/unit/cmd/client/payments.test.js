@@ -1,5 +1,4 @@
 const test = require('ava')
-const CID = require('cids')
 const Filecoin = require('../../../../src')
 
 test('should list payments for a given deal', async t => {
