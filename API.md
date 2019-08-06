@@ -48,7 +48,7 @@
 * paych.redeem
 * paych.voucher
 * [ping](#ping)
-* retrievalClient.retrievePiece
+* [retrievalClient.retrievePiece](#retrievalclientretrievepiece)
 * [show.block](#showblock)
 * [stats.bandwidth](#statsbandwidth)
 * [swarm.connect](#swarmconnect)
@@ -845,6 +845,35 @@ for await (const pong of fc.ping(peerId))
 After first iteration:
 { success: true, text: '', time: 187.54 }
 */
+```
+
+## `retrievalClient.retrievePiece`
+
+> Read out piece data stored by a miner on the network
+
+### `retrievalClient.retrievePiece(miner, cid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| miner address | `String` | Retrieval miner actor address |
+| cid | `String` | Content identifier of piece to read |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `AsyncIterable<Buffer>` | Content of the file, yields `Buffer` objects in Node.js |
+
+#### Example
+
+```js
+let data = Buffer.alloc(0)
+for await (const chunk of fc.retrievalClient.retrievePiece('t2u2r6nyaxdspozci5t2i2xtfw23lxa35rvkul7di','QmSB6t4fVfE4fZ46EFBodtK89RJaCRTtPRaEYFx8EQxh8a'))
+  data = Buffer.concat([data, chunk])
 ```
 
 ## `show.block`
