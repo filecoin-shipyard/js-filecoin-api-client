@@ -32,7 +32,8 @@ module.exports = (fetch, config) => {
       import: require('./cmd/client/import')(fetch, config),
       listAsks: require('./cmd/client/list-asks')(fetch, config),
       payments: require('./cmd/client/payments')(fetch, config),
-      proposeStorageDeal: require('./cmd/client/propose-storage-deal')(fetch, config)
+      proposeStorageDeal: require('./cmd/client/propose-storage-deal')(fetch, config),
+      queryStorageDeal: require('./cmd/client/query-storage-deal')(fetch, config)
     },
     config: {
       get: require('./cmd/config/get')(fetch, config),
