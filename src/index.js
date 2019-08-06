@@ -52,6 +52,9 @@ module.exports = (fetch, config) => {
       stop: require('./cmd/mining/stop')(fetch, config)
     },
     ping: require('./cmd/ping')(fetch, config),
+    retrievalClient: {
+      retrievePiece: require('./cmd/retrieval-client/retrieve-piece')(fetch, config)
+    },
     show: {
       block: require('./cmd/show/block')(fetch, config)
     },
