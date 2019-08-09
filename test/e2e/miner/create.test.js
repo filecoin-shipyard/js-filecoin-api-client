@@ -3,7 +3,10 @@ const AbortController = require('abort-controller')
 const Filecoin = require('../helpers/filecoin')
 const faucet = require('../helpers/faucet')
 
-test('should create a miner', async t => {
+// FIXME: miner.create can only be called once, so e2e tests need to be changed
+// to spin up a new filecoin node for this test
+// https://github.com/filecoin-project/js-filecoin-api-client/issues/69
+test.skip('should create a miner', async t => {
   const fc = Filecoin()
 
   const controller = new AbortController()
@@ -15,7 +18,7 @@ test('should create a miner', async t => {
 
     console.log('waiting for message ' + messageCid)
 
-    const messageRes = await fc.message.wait(messageCid, { signal: controller.signal })
+    await fc.message.wait(messageCid, { signal: controller.signal })
 
     console.log('creating miner')
 
