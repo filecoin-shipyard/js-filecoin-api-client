@@ -75,9 +75,9 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [log.tail](API.md#logtail)
 * message.send
 * message.status
-* message.wait
+* [message.wait](API.md#messagewait)
 * miner.addAsk
-* miner.create
+* [miner.create](API.md#minercreate)
 * miner.owner
 * miner.pledge
 * miner.power

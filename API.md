@@ -26,9 +26,9 @@
 * [log.tail](#logtail)
 * message.send
 * message.status
-* message.wait
+* [message.wait](#messagewait)
 * miner.addAsk
-* miner.create
+* [miner.create](#minercreate)
 * miner.owner
 * miner.pledge
 * miner.power
@@ -825,6 +825,36 @@ console.log(subsystems)
 ```js
 for await (const entry of fc.log.tail())
   console.log(entry)
+```
+
+## `message.wait`
+
+> Wait for a message to appear in a mined block
+
+### `message.wait(messageCid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| messageCid | `CID`\|`String` | CID of the message to wait for |
+| options | `Object` | Optional options |
+| options.message | `Boolean` | Print the whole message. Default: true. |
+| options.receipt | `Boolean` | Print the whole message receipt. Default: true. |
+| options.return | `Boolean` | Print the return value from the receipt. Default: false. |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+| options.timeout | `String` | Maximum time to wait for message. e.g., 300ms, 1.5h, 2h45m. Default: 10m. |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | Message contents |
+
+#### Example
+
+```js
+const msg = await fc.message.wait('zdpuAm8mTU17dB5mckEDSNXFtvuxVESUhKivSLCWw1kMZjdK9')
 ```
 
 ## `mining.stop`
