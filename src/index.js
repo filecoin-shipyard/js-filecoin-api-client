@@ -49,6 +49,12 @@ module.exports = (fetch, config) => {
       ls: require('./cmd/log/ls')(fetch, config),
       tail: require('./cmd/log/tail')(fetch, config)
     },
+    message: {
+      wait: require('./cmd/message/wait')(fetch, config)
+    },
+    miner: {
+      create: require('./cmd/miner/create')(fetch, config)
+    },
     mining: {
       stop: require('./cmd/mining/stop')(fetch, config)
     },
