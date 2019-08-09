@@ -405,13 +405,13 @@ After first iteration:
 
 > List payments for a given deal
 
-### `client.payments([options])`
+### `client.payments(dealCid, [options])`
 
 #### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
-| channel id | `String` | Channel id from which to list vouchers |
+| dealCid | `CID`\|`String` | Channel id from which to list vouchers |
 | options | `Object` | Optional options |
 | options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
@@ -421,6 +421,8 @@ After first iteration:
 |------|-------------|
 | `Promise<Object[]>` | List of payments |
 
+#### Example
+
 ```js
 const cid = 'zDPWYqFCuTNxiwRkt1iDJWEy6qKPGCunMGHrP1ojsMrZDWKYsgzF'
 const payments = await fc.client.payments(cid)
@@ -429,13 +431,13 @@ console.log(payments)
 /*
   [
     {
-      "channel":0,
-      "payer":"t1bcvxo4ztdkukjmrsjvc5d4w24cl55vvbrssspyy",
-      "target":"t1uo4nzu44apoclkbjbbvc4f3irbptg3ctjq44wiq",
-      "amount":"25000",
-      "valid_at":8,
-      "condition":null,
-      "signature":"1My76149fPIulbdO/DKlkUBMMSLwGYSw2XmVKXq3HrxMG5kkmBgsaPZ/DzdxiOWX5kdnXJ++AFQqsmWHd5dtOwE="
+      "channel": 0,
+      "payer": "t1bcvxo4ztdkukjmrsjvc5d4w24cl55vvbrssspyy",
+      "target": "t1uo4nzu44apoclkbjbbvc4f3irbptg3ctjq44wiq",
+      "amount": "25000",
+      "validAt": 8,
+      "condition": null,
+      "signature": "1My76149fPIulbdO/DKlkUBMMSLwGYSw2XmVKXq3HrxMG5kkmBgsaPZ/DzdxiOWX5kdnXJ++AFQqsmWHd5dtOwE="
     }
   ]
 */

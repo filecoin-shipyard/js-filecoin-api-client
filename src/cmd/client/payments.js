@@ -10,6 +10,13 @@ module.exports = (fetch, config) => {
     const res = await ok(fetch(url, { signal: options.signal }))
 
     const paymentsData = await res.json()
-    return paymentsData
+
+    return (paymentsData || []).map(d => {
+      const { valid_at, ...rest } = d
+      if (valid_at != null) {
+        rest.validAt = valid_at
+      }
+      return rest
+    })
   }
 }
