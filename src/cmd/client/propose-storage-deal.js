@@ -2,9 +2,7 @@ const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
-  return async (miner, cid, askId, time, ...props) => {
-    const { allowDuplicates } = props[0] || []
-    let options = props.length > 1 ? props[1] : props[0]
+  return async (miner, cid, askId, time, options) => {
     options = options || {}
 
     miner = encodeURIComponent(miner)
@@ -12,7 +10,7 @@ module.exports = (fetch, config) => {
     askId = encodeURIComponent(askId)
     time = encodeURIComponent(time)
 
-    const duplicatesParam = allowDuplicates ? `&allow-duplicates=${encodeURIComponent(allowDuplicates)}` : ""
+    const duplicatesParam = options.allowDuplicates ? `&allow-duplicates=${encodeURIComponent(options.allowDuplicates)}` : ""
 
     const url = `${toUri(config.apiAddr)}/api/client/proposeStorageDeal?arg=${miner}&arg=${cid}&arg${askId}&arg${time}${duplicatesParam}`
     const res = await ok(fetch(url, { signal: options.signal }))

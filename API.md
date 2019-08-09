@@ -456,8 +456,8 @@ console.log(payments)
 | cid | `String` | CID of the data to be stored |
 | id | `String` | ID of ask for which to propose a deal |
 | time | `String` | Time in blocks (about 30 seconds per block) to store data. For example, storing for 1 day (2 blocks/min * 60 min/hr * 24 hr/day) = 2880 blocks. |
-| allowDuplicates | `Boolean` | Allows duplicate proposals to be created. Unless this flag is set, you will not be able to make more than one deal per piece per miner. This protection exists to prevent erroneous duplicate deals. This parameter is not required. |
 | options | `Object` | Optional options |
+| options.allowDuplicates | `Boolean` | Allows duplicate proposals to be created. Unless this flag is set, you will not be able to make more than one deal per piece per miner. This protection exists to prevent erroneous duplicate deals. This parameter is not required. |
 | options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
@@ -480,9 +480,6 @@ const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId
 
 // with optional flag to allow duplicates
 const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId, time, { allowDuplicates: true })
-
-// with allow duplicates flag and options, order important
-const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId, time, { allowDuplicates: true }, { signal: "some signal to abort" })
 
 /*
 {
