@@ -857,6 +857,48 @@ for await (const entry of fc.log.tail())
 const msg = await fc.message.wait('zdpuAm8mTU17dB5mckEDSNXFtvuxVESUhKivSLCWw1kMZjdK9')
 ```
 
+## `miner.create`
+
+> Create a new file miner with <collateral> FIL
+>
+> Issues a new message to the network to create the miner, then waits for the message to be mined as this is required to return the address of the new miner.
+>
+> Collateral will be committed at the rate of 0.001FIL per sector. When the miner's collateral drops below 0.001FIL, the miner will not be able to commit additional sectors.
+
+### `miner.create(collateral, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| collateral | `Number`\|`String` | The amount of collateral, in FIL. |
+| options | `Object` | Optional options |
+| options.sectorSize | `String` | Size of the sectors which this miner will commit, in bytes. |
+| options.from | `String` | Address to send from |
+| options.peerId | `String` | Base58-encoded libp2p peer ID that the miner will operate. |
+| options.gasPrice | `Number`\|`String` | Price (FIL e.g. 0.00013) to pay for each GasUnits consumed mining this message. |
+| options.gasLimit | `Number`\|`String` | Maximum number of GasUnits this message is allowed to consume. |
+| options.preview | `Boolean` | Preview the Gas cost of this command without actually executing it. |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<?>` | TODO |
+
+#### Example
+
+```js
+const res = await fc.miner.create(100, {
+  gasPrice: 0.1,
+  gasLimit: 300,
+  from: 't1afotrik6r7s4mcm5oeay6vc7qombbxjqplkw4ka'
+})
+
+console.log(res)
+```
+
 ## `mining.stop`
 
 > Stop mining operations
