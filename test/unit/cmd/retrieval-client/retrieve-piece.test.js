@@ -10,10 +10,10 @@ test('should read out piece data stored by a miner on the network', async t => {
   const fetch = () => ({ ok: true, body: toAsyncIterable(chunks) })
   const fc = Filecoin(fetch)
 
-  let data = Buffer.alloc(0)
+  const data = []
   for await (const chunk of fc.retrievalClient.retrievePiece(miner, cid)) {
-    data = Buffer.concat([data, chunk])
+    data.push(chunk)
   }
 
-  t.deepEqual(data, Buffer.concat(chunks))
+  t.deepEqual(Buffer.concat(data), Buffer.concat(chunks))
 })

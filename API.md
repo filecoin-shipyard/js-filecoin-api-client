@@ -857,8 +857,8 @@ After first iteration:
 
 | Name | Type | Description |
 |------|------|-------------|
-| miner address | `String` | Retrieval miner actor address |
-| cid | `String` | Content identifier of piece to read |
+| miner | `String` | Retrieval miner actor address |
+| cid | `CID`\|`String` | Content identifier of piece to read |
 | options | `Object` | Optional options |
 | options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
@@ -866,13 +866,18 @@ After first iteration:
 
 | Type | Description |
 |------|-------------|
-| `AsyncIterable<Buffer>` | Content of the file, yields `Buffer` objects in Node.js |
+| `AsyncIterable<Buffer\|UInt8Array>` | Content of the file, yields `Buffer` objects in Node.js and `UInt8Array` objects in the browser |
 
 #### Example
 
 ```js
+const pieceData = fc.retrievalClient.retrievePiece(
+  't2u2r6nyaxdspozci5t2i2xtfw23lxa35rvkul7di',
+  'QmSB6t4fVfE4fZ46EFBodtK89RJaCRTtPRaEYFx8EQxh8a'
+)
+
 let data = Buffer.alloc(0)
-for await (const chunk of fc.retrievalClient.retrievePiece('t2u2r6nyaxdspozci5t2i2xtfw23lxa35rvkul7di','QmSB6t4fVfE4fZ46EFBodtK89RJaCRTtPRaEYFx8EQxh8a'))
+for await (const chunk of pieceData)
   data = Buffer.concat([data, chunk])
 ```
 

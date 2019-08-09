@@ -7,11 +7,10 @@ module.exports = (fetch, config) => {
 
     minerAddr = encodeURIComponent(minerAddr)
     cid = encodeURIComponent(cid)
+
     const url = `${toUri(config.apiAddr)}/api/retrieval-client/retrieve-piece?arg=${minerAddr}&arg=${cid}`
     const res = await ok(fetch(url, { signal: options.signal }))
 
-    for await (const chunk of toIterable(res.body)) {
-      yield chunk
-    }
+    yield * toIterable(res.body)
   })()
 }
