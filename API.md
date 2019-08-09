@@ -406,6 +406,7 @@ After first iteration:
 > List payments for a given deal
 
 ### `client.payments(dealCid, [options])`
+
 #### Parameters
 
 | Name | Type | Description |
@@ -415,6 +416,7 @@ After first iteration:
 | options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
+
 | Type | Description |
 |------|-------------|
 | `Promise<Object[]>` | List of payments |
@@ -461,10 +463,10 @@ console.log(payments)
 | options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
 
 #### Returns
+
 | Type | Description |
 |------|-------------|
 | `Promise<Object>` | Storage deal |
-
 
 #### Example
 
@@ -483,14 +485,14 @@ const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId
 
 /*
 {
-  "State":3,
-  "Message":"",
-  "ProposalCid":
+  "state":3,
+  "message":"",
+  "proposalCid":
     {
       "/":"zDPWYqFCz8vQRUnFVsbdXPAWTRuRBLaPncKLLSqd7cNF3Bd2NQT5"
     },
-  "ProofInfo":null,
-  "Signature":"c2lnbmF0dXJycmVlZQ=="
+  "proofInfo":null,
+  "signature":"c2lnbmF0dXJycmVlZQ=="
 }
 */
 ```

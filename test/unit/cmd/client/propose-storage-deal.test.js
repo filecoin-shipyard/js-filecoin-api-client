@@ -7,7 +7,7 @@ test('should propose a storage deal', async t => {
   const askId = "0"
   const time = "2880"
 
-  const newStorageDeal = {
+  const returnedStorageDeal = {
     "State":3,
     "Message":"",
     "ProposalCid":
@@ -18,12 +18,23 @@ test('should propose a storage deal', async t => {
     "Signature":"c2lnbmF0dXJycmVlZQ=="
   }
 
-  const fetch = () => ({ ok: true, json: () => newStorageDeal })
+  const toCamelStorageDeal = {
+    "state":3,
+    "message":"",
+    "proposalCid":
+      {
+        "/":"zDPWYqFCz8vQRUnFVsbdXPAWTRuRBLaPncKLLSqd7cNF3Bd2NQT5"
+      },
+    "proofInfo":null,
+    "signature":"c2lnbmF0dXJycmVlZQ=="
+  }
+
+  const fetch = () => ({ ok: true, json: () => returnedStorageDeal })
   const fc = Filecoin(fetch)
 
   const res = await fc.client.proposeStorageDeal(minerAddr, cid, askId, time)
 
-  t.is(res, newStorageDeal)
+  t.deepEqual(res, toCamelStorageDeal)
 })
 
 test('should allow proposal of a storage deal with allowDuplicates flag', async t => {
@@ -33,7 +44,7 @@ test('should allow proposal of a storage deal with allowDuplicates flag', async 
   const time = "2880"
   const options = { signal: "some signal", allowDuplicates: true }
 
-  const newStorageDeal = {
+  const returnedStorageDeal = {
     "State":3,
     "Message":"",
     "ProposalCid":
@@ -44,10 +55,21 @@ test('should allow proposal of a storage deal with allowDuplicates flag', async 
     "Signature":"c2lnbmF0dXJycmVlZQ=="
   }
 
-  const fetch = () => ({ ok: true, json: () => newStorageDeal })
+  const toCamelStorageDeal = {
+    "state":3,
+    "message":"",
+    "proposalCid":
+      {
+        "/":"zDPWYqFCz8vQRUnFVsbdXPAWTRuRBLaPncKLLSqd7cNF3Bd2NQT5"
+      },
+    "proofInfo":null,
+    "signature":"c2lnbmF0dXJycmVlZQ=="
+  }
+
+  const fetch = () => ({ ok: true, json: () => returnedStorageDeal })
   const fc = Filecoin(fetch)
 
   const res = await fc.client.proposeStorageDeal(minerAddr, cid, askId, time, options)
 
-  t.is(res, newStorageDeal)
+  t.deepEqual(res, toCamelStorageDeal)
 })
