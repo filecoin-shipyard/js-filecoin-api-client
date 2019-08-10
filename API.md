@@ -12,7 +12,7 @@
 * [client.import](#clientimport)
 * [client.listAsks](#clientlistasks)
 * [client.payments](#clientpayments)
-* client.proposeStorageDeal
+* [client.proposeStorageDeal](#clientproposestoragedeal)
 * client.queryStorageDeal
 * [config.get](#configget)
 * [config.set](#configset)
@@ -440,6 +440,55 @@ console.log(payments)
       "signature": "1My76149fPIulbdO/DKlkUBMMSLwGYSw2XmVKXq3HrxMG5kkmBgsaPZ/DzdxiOWX5kdnXJ++AFQqsmWHd5dtOwE="
     }
   ]
+*/
+```
+
+
+## `client.proposeStorageDeal`
+
+> Propose a storage deal with a storage miner
+
+### `client.proposeStorageDeal(miner, cid, askId, time, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| miner | `String` | Address of miner to send storage proposal |
+| cid | `String` | CID of the data to be stored |
+| askId | `String` | ID of ask for which to propose a deal |
+| time | `Number`\|`String` | Time in blocks (about 30 seconds per block) to store data. For example, storing for 1 day (2 blocks/min * 60 min/hr * 24 hr/day) = 2880 blocks. |
+| options | `Object` | Optional options |
+| options.allowDuplicates | `Boolean` | Allows duplicate proposals to be created. Unless this flag is set, you will not be able to make more than one deal per piece per miner. This protection exists to prevent erroneous duplicate deals. This parameter is not required. |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | Storage deal |
+
+#### Example
+
+```js
+const miner = 't2u2r6nyaxdspozci5t2i2xtfw23lxa35rvkul7di'
+const cid = 'QmV9mkND7mvWim77R669UCLg1DgYzqiX1NsXtj7GSydzD6'
+const askId = '0'
+const time = 2800 // 1 day
+
+const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId, time)
+
+// with optional flag to allow duplicates
+const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId, time, { allowDuplicates: true })
+
+/*
+{
+  "state": 3,
+  "message": "",
+  "proposalCid": "zDPWYqFCz8vQRUnFVsbdXPAWTRuRBLaPncKLLSqd7cNF3Bd2NQT5",
+  "proofInfo": null,
+  "signature": "c2lnbmF0dXJycmVlZQ=="
+}
 */
 ```
 
