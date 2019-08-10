@@ -35,5 +35,6 @@ jobs:
 
       # run tests!
       - run:
-          - npm run lint
-          - npm test
+          command: |
+              npm run lint
+              npm test
