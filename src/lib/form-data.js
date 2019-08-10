@@ -28,6 +28,5 @@ exports.toFormData = async function toFormData (input) {
     }
   )
 
-
   return formData
 }
