@@ -1,4 +1,4 @@
-// const toStream = require('async-iterator-to-stream')
+const toStream = require('it-to-stream')
 const FormData = require('form-data')
 
 exports.toFormData = async function toFormData (input) {
@@ -11,13 +11,23 @@ exports.toFormData = async function toFormData (input) {
 
   // In Node.js, FormData can be passed a stream so no need to buffer
   const formData = new FormData()
-  const bufs = []
-  for await (const chunk of input) {
-    bufs.push(Buffer.from(chunk))
-  }
-  // FIXME: the below does not work! It should do, but only the first chunk
-  // gets uploaded :(
-  // formData.append('file', toStream(input))
-  formData.append('file', Buffer.concat(bufs))
+
+  formData.append(
+    'file',
+    // FIXME: add a `path` property to the stream so `form-data` doesn't set
+    // a Content-Length header that is only the sum of the size of the
+    // header/footer when knownLength option (below) is null.
+    Object.assign(
+      toStream(input),
+      { path: input.path || 'file' }
+    ),
+    {
+      filepath: input.path,
+      contentType: 'application/octet-stream',
+      knownLength: input.length // Send Content-Length header if known
+    }
+  )
+
+
   return formData
 }
