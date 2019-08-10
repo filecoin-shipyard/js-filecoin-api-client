@@ -1,0 +1,12 @@
+{
+  "sample0": {
+    "State": 3,
+    "Message": "",
+    "ProposalCid":
+      {
+        "/": "zDPWYqFCz8vQRUnFVsbdXPAWTRuRBLaPncKLLSqd7cNF3Bd2NQT5"
+      },
+    "ProofInfo": null,
+    "Signature": "c2lnbmF0dXJycmVlZQ=="
+  }
+}
