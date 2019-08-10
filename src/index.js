@@ -6,6 +6,7 @@ module.exports = (fetch, config) => {
 
   fetch = fetch || require('./lib/fetch').fetch
   config = config || {}
+  if (typeof config === 'string') config = { apiAddr: config }
 
   config.apiAddr = config.apiAddr || '/ip4/127.0.0.1/tcp/3453/http'
 
