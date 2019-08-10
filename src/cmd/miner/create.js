@@ -1,4 +1,3 @@
-const QueryString = require('querystring')
 const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 
@@ -6,33 +5,34 @@ module.exports = (fetch, config) => {
   return async (collateral, options) => {
     options = options || {}
 
-    const qs = { arg: collateral }
+    const qs = new URLSearchParams(options.qs)
+    qs.set('arg', collateral)
 
     if (options.from != null) {
-      qs.from = options.from
+      qs.set('from', options.from)
     }
 
     if (options.gasLimit != null) {
-      qs['gas-limit'] = options.gasLimit
+      qs.set('gas-limit', options.gasLimit)
     }
 
     if (options.gasPrice != null) {
-      qs['gas-price'] = options.gasPrice
+      qs.set('gas-price', options.gasPrice)
     }
 
     if (options.peerId != null) {
-      qs.peerid = options.peerId
+      qs.set('peerid', options.peerId)
     }
 
     if (options.preview != null) {
-      qs.preview = options.preview
+      qs.set('preview', options.preview)
     }
 
     if (options.sectorSize != null) {
-      qs.sectorsize = options.sectorSize
+      qs.set('sectorsize', options.sectorSize)
     }
 
-    const url = `${toUri(config.apiAddr)}/api/miner/create?${QueryString.stringify(qs)}`
+    const url = `${toUri(config.apiAddr)}/api/miner/create?${qs}`
     const res = await ok(fetch(url, { signal: options.signal }))
     return res.json()
   }

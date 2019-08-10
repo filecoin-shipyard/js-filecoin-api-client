@@ -1,5 +1,4 @@
 const ndjson = require('iterable-ndjson')
-const QueryString = require('querystring')
 const toUri = require('../../lib/multiaddr-to-uri')
 const { ok, toIterable } = require('../../lib/fetch')
 
@@ -7,13 +6,11 @@ module.exports = (fetch, config) => {
   return (key, options) => (async function * () {
     options = options || {}
 
-    const qs = { arg: key.toString() }
+    const qs = new URLSearchParams(options.qs)
+    qs.set('arg', key.toString())
+    if (options.numProviders) qs.set('num-providers', options.numProviders)
 
-    if (options.numProviders) {
-      qs['num-providers'] = options.numProviders
-    }
-
-    const url = `${toUri(config.apiAddr)}/api/dht/findprovs?${QueryString.stringify(qs)}`
+    const url = `${toUri(config.apiAddr)}/api/dht/findprovs?${qs}`
     const res = await ok(fetch(url, { signal: options.signal }))
 
     for await (const peer of ndjson(toIterable(res.body))) {
