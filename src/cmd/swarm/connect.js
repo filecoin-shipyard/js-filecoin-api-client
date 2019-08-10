@@ -1,4 +1,3 @@
-const QueryString = require('querystring')
 const toUri = require('../../lib/multiaddr-to-uri')
 const { ok } = require('../../lib/fetch')
 const toCamel = require('../../lib/to-camel')
@@ -8,9 +7,10 @@ module.exports = (fetch, config) => {
     addrs = Array.isArray(addrs) ? addrs : [addrs]
     options = options || {}
 
-    const qs = { arg: addrs.map(a => a.toString()) }
+    const qs = new URLSearchParams(options.qs)
+    addrs.forEach(a => qs.append('arg', a.toString()))
 
-    const url = `${toUri(config.apiAddr)}/api/swarm/connect?${QueryString.stringify(qs)}`
+    const url = `${toUri(config.apiAddr)}/api/swarm/connect?${qs}`
     const res = await ok(fetch(url, { signal: options.signal }))
     const data = await res.json()
 

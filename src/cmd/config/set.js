@@ -1,6 +1,5 @@
 const toUri = require('../../lib/multiaddr-to-uri')
 const explain = require('explain-error')
-const QueryString = require('querystring')
 const { ok } = require('../../lib/fetch')
 
 module.exports = (fetch, config) => {
@@ -13,8 +12,10 @@ module.exports = (fetch, config) => {
       throw explain(err, 'failed to stringify config value')
     }
 
-    const qs = { arg: [key, value] }
-    const url = `${toUri(config.apiAddr)}/api/config?${QueryString.stringify(qs)}`
+    const qs = new URLSearchParams(options.qs)
+    ;[key, value].forEach(arg => qs.append('arg', arg))
+
+    const url = `${toUri(config.apiAddr)}/api/config?${qs}`
     const res = await ok(fetch(url, { signal: options.signal }))
     const data = await res.json()
     return data
