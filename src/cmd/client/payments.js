@@ -12,9 +12,9 @@ module.exports = (fetch, config) => {
     const paymentsData = await res.json()
 
     return (paymentsData || []).map(d => {
-      const { valid_at, ...rest } = d
-      if (valid_at != null) {
-        rest.validAt = valid_at
+      const { valid_at: validAt, ...rest } = d
+      if (validAt != null) {
+        rest.validAt = validAt
       }
       return rest
     })
