@@ -495,6 +495,7 @@ const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId
 ## `client.queryStorageDeal`
 
 > Query a storage deal's status
+
 ### `client.queryStorageDeal(dealCid, [options])`
 
 #### Parameters
@@ -520,22 +521,19 @@ console.log(storageDeal)
 
 /*
 {
-  "State":7,
-  "Message":"",
-  "ProposalCid":
+  "state": 7,
+  "message": "",
+  "proposalCid": "zDPWYqFD8CNXu7Mo9qPSUANbTK2vi9vJBnvavF9S1pVGPHafVHpT",
+  "proofInfo":
     {
-      "/":"zDPWYqFD8CNXu7Mo9qPSUANbTK2vi9vJBnvavF9S1pVGPHafVHpT"
-    },
-  "ProofInfo":
-    {
-      "SectorID":1,
-      "CommitmentMessage":
+      "sectorID": 1,
+      "commitmentMessage":
         {
-          "/":"zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R"
+          "/":  "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R"
         },
-      "PieceInclusionProof":"EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
+      "pieceInclusionProof":  "EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
     },
-  "Signature":"c2lnbmF0dXJycmVlZQ=="
+  "signature": "c2lnbmF0dXJycmVlZQ=="
 }
 */
 ```
