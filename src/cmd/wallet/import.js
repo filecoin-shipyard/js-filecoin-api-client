@@ -9,10 +9,10 @@ module.exports = (fetch, config) => {
     options = options || {}
 
     const form = new FormData()
-    form.append('walletFile', JSON.stringify({ 'KeyInfo': keyInfo }))
+    form.append('walletFile', JSON.stringify({ KeyInfo: keyInfo }))
 
     const url = `${toUri(config.apiAddr)}/api/wallet/import`
-    const res = await ok(fetch(url, { 
+    const res = await ok(fetch(url, {
       signal: options.signal,
       method: 'POST',
       body: form
