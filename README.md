@@ -6,6 +6,10 @@
 
 > An API client for Filecoin
 
+⚠️ WARNING: Filecoin is under heavy development and breaking changes are highly likely between versions. This library is **experimental**, **incomplete** and **unsupported** by the Filecoin team. It may be broken in part or in entirety.
+
+🧩 Currently compatible with **Filecoin 0.3.2**
+
 ## Install
 
 ```sh
