@@ -56,7 +56,7 @@
 * [version](#version)
 * [wallet.balance](#walletbalance)
 * [wallet.export](#walletexport)
-* wallet.import
+* [wallet.import](#walletimport)
 
 ## `actor.ls`
 
@@ -1348,3 +1348,39 @@ console.log(info)
 }
 */
 ```
+
+## `wallet.import`
+
+> import a wallet with KeyInfo
+
+
+### `wallet.import(keyInfo, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| addr | `KeyInfo`\|`KeyInfo[]` | KeyInfo(s) to import |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | imported address(es) |
+
+#### Example
+
+```js
+const keyInfo = {"privateKey":"pdHwTOrJXnAGvQ0861k66xRsiT7N3Ms8IGte3nT837E=","curve":"secp256k1"}
+const data = await fc.wallet.import(keyInfo)
+console.log(data.addresses)
+// t1b3keswmeuk4tipp5egjbk3aoag56g5zd3cle2va
+```
+
+
+
+
+
+
