@@ -5,7 +5,7 @@ test('should import a wallet', async t => {
   const fc = Filecoin()
   const addresses = await fc.address.ls()
   const data = await fc.wallet.export(addresses[0])
-  
+
   t.truthy(data.keyInfo)
   t.true(Array.isArray(data.keyInfo))
 

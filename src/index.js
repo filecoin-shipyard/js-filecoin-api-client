@@ -78,7 +78,7 @@ module.exports = (fetch, config) => {
     wallet: {
       balance: require('./cmd/wallet/balance')(fetch, config),
       export: require('./cmd/wallet/export')(fetch, config),
-      import: require('./cmd/wallet/import')(fetch, config),
+      import: require('./cmd/wallet/import')(fetch, config)
     }
   }
 }
