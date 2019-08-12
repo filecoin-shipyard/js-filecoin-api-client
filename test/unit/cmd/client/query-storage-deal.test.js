@@ -3,7 +3,7 @@ const Filecoin = require('../../../../src')
 const Fixtures = require('./query-storage-deal.fixtures.json')
 
 test('should list the storage deal info for a particular cid', async t => {
-  const cid = "zDPWYqFCuTNxiwRkt1iDJWEy6qKPGCunMGHrP1ojsMrZDWKYsgzF"
+  const cid = 'zDPWYqFCuTNxiwRkt1iDJWEy6qKPGCunMGHrP1ojsMrZDWKYsgzF'
 
   const fetch = () => ({ ok: true, json: () => Fixtures })
   const fc = Filecoin(fetch)
@@ -11,12 +11,9 @@ test('should list the storage deal info for a particular cid', async t => {
   const res = await fc.client.queryStorageDeal(cid)
 
   const proofInfo = {
-    "sectorID": 1,
-    "commitmentMessage":
-      {
-        "/": "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R"
-      },
-    "pieceInclusionProof": "EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
+    sectorID: 1,
+    commitmentMessage: 'zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R',
+    pieceInclusionProof: 'EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=='
   }
 
   t.deepEqual(res, {

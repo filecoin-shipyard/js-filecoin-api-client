@@ -19,6 +19,10 @@ module.exports = (fetch, config) => {
       storageDeal.proofInfo = toCamel(storageDeal.proofInfo)
     }
 
+    if (storageDeal.proofInfo && storageDeal.proofInfo.commitmentMessage) {
+      storageDeal.proofInfo.commitmentMessage = storageDeal.proofInfo.commitmentMessage['/']
+    }
+
     return storageDeal
   }
 }
