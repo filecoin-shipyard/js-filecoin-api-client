@@ -1,7 +1,7 @@
 # filecoin-api-client
 
-![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-project/js-filecoin-api-client/master.svg)
-[![dependencies Status](https://david-dm.org/filecoin-project/js-filecoin-api-client/status.svg)](https://david-dm.org/filecoin-project/js-filecoin-api-client)
+![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-shipyard/js-filecoin-api-client/master.svg)
+[![dependencies Status](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client/status.svg)](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > An API client for Filecoin
@@ -115,10 +115,10 @@ Status: 34/57 **60%**
 
 ## Contribute
 
-Feel free to dive in! [Open an issue](https://github.com/filecoin-project/js-filecoin-api-client/issues/new) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/filecoin-shipyard/js-filecoin-api-client/issues/new) or submit PRs.
 
 ## License
 
 The Filecoin Project is dual-licensed under Apache 2.0 and MIT terms:
-- Apache License, Version 2.0, ([LICENSE-APACHE](https://github.com/filecoin-project/js-filecoin-api-client/blob/master/LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](https://github.com/filecoin-project/js-filecoin-api-client/blob/master/LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0, ([LICENSE-APACHE](https://github.com/filecoin-shipyard/js-filecoin-api-client/blob/master/LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license ([LICENSE-MIT](https://github.com/filecoin-shipyard/js-filecoin-api-client/blob/master/LICENSE-MIT) or http://opensource.org/licenses/MIT)

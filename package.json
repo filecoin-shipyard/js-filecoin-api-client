@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/filecoin-project/js-filecoin-api-client.git"
+    "url": "git+https://github.com/filecoin-shipyard/js-filecoin-api-client.git"
   },
   "keywords": [
     "Filecoin",
@@ -59,7 +59,7 @@
     "REST"
   ],
   "bugs": {
-    "url": "https://github.com/filecoin-project/js-filecoin-api-client/issues"
+    "url": "https://github.com/filecoin-shipyard/js-filecoin-api-client/issues"
   },
-  "homepage": "https://github.com/filecoin-project/js-filecoin-api-client#readme"
+  "homepage": "https://github.com/filecoin-shipyard/js-filecoin-api-client#readme"
 }

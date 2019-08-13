@@ -5,7 +5,7 @@ const faucet = require('../helpers/faucet')
 
 // FIXME: miner.create can only be called once, so e2e tests need to be changed
 // to spin up a new filecoin node for this test
-// https://github.com/filecoin-project/js-filecoin-api-client/issues/69
+// https://github.com/filecoin-shipyard/js-filecoin-api-client/issues/69
 test.skip('should create a miner', async t => {
   const fc = Filecoin()
 
