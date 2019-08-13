@@ -1372,14 +1372,26 @@ console.log(info)
 
 #### Example
 
+Single:
+
 ```js
 const keyInfo = {"privateKey":"pdHwTOrJXnAGvQ0861k66xRsiT7N3Ms8IGte3nT837E=","curve":"secp256k1"}
-const data = await fc.wallet.import(keyInfo)
-console.log(data.addresses)
-// t1b3keswmeuk4tipp5egjbk3aoag56g5zd3cle2va
+const res = await fc.wallet.import(keyInfo)
+console.log(res.addresses)
+// [ 't1b3keswmeuk4tipp5egjbk3aoag56g5zd3cle2va' ]
 ```
 
+Multiple:
 
+```js
+const keyInfo = [
+  {"privateKey":"pdHwTOrJXnAGvQ0861k66xRsiT7N3Ms8IGte3nT837E=","curve":"secp256k1"},
+  {"privateKey":"Wxvp929XNPFVPPefsYJqpOuAnoXceh+P6tNq5pEmqcc=","curve":"secp256k1"}
+]
+const res = await fc.wallet.import(keyInfo)
+console.log(res.addresses)
+// [ 't1b3keswmeuk4tipp5egjbk3aoag56g5zd3cle2va', 't1dktsc463xl3e3fq7bgjg6h2zcmhftvqfw7juqea' ]
+```
 
 
 
