@@ -1,6 +1,6 @@
 # filecoin-api-client
 
-![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-shipyard/js-filecoin-api-client/master.svg)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-shipyard/js-filecoin-api-client/master.svg)](https://circleci.com/gh/filecoin-shipyard/js-filecoin-api-client)
 [![dependencies Status](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client/status.svg)](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
