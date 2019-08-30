@@ -527,10 +527,7 @@ console.log(storageDeal)
   "proofInfo":
     {
       "sectorID": 1,
-      "commitmentMessage":
-        {
-          "/":  "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R"
-        },
+      "commitmentMessage": "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R",
       "pieceInclusionProof":  "EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
     },
   "signature": "c2lnbmF0dXJycmVlZQ=="
