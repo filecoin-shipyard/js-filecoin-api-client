@@ -31,7 +31,7 @@
     "ipfs-unixfs": "^0.1.16",
     "multiaddr": "^6.1.0",
     "nyc": "^14.1.1",
-    "standard": "^13.1.0",
+    "standard": "^14.1.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
   },
