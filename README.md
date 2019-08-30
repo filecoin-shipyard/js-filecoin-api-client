@@ -66,7 +66,7 @@ $ filecoin config api.accessControlAllowOrigin '["http://example.com"]'
 * [client.listAsks](API.md#clientlistasks)
 * [client.payments](API.md#clientpayments)
 * [client.proposeStorageDeal](API.md#clientproposestoragedeal)
-* client.queryStorageDeal
+* [client.queryStorageDeal](API.md#clientquerystoragedeal)
 * [config.get](API.md#configget)
 * [config.set](API.md#configset)
 * [dag.get](API.md#dagget)

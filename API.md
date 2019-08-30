@@ -13,7 +13,7 @@
 * [client.listAsks](#clientlistasks)
 * [client.payments](#clientpayments)
 * [client.proposeStorageDeal](#clientproposestoragedeal)
-* client.queryStorageDeal
+* [client.queryStorageDeal](#clientquerystoragedeal)
 * [config.get](#configget)
 * [config.set](#configset)
 * [dag.get](#dagget)
@@ -491,6 +491,50 @@ const storageDealProposal = await fc.client.proposeStorageDeal(miner, cid, askId
 }
 */
 ```
+
+## `client.queryStorageDeal`
+
+> Query a storage deal's status
+
+### `client.queryStorageDeal(dealCid, [options])`
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| dealCid | `String` | CID of deal to query |
+| options | `Object` | Optional options |
+| options.signal | [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) | A signal that can be used to abort the request |
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `Promise<Object>` | Storage deal |
+
+#### Example
+
+```js
+const dealCid = 'zDPWYqFD8CNXu7Mo9qPSUANbTK2vi9vJBnvavF9S1pVGPHafVHpT'
+const storageDeal = await fc.client.queryStorageDeal(dealCid)
+console.log(storageDeal)
+
+/*
+{
+  "state": 7,
+  "message": "",
+  "proposalCid": "zDPWYqFD8CNXu7Mo9qPSUANbTK2vi9vJBnvavF9S1pVGPHafVHpT",
+  "proofInfo":
+    {
+      "sectorID": 1,
+      "commitmentMessage": "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R",
+      "pieceInclusionProof":  "EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
+    },
+  "signature": "c2lnbmF0dXJycmVlZQ=="
+}
+*/
+```
+
 
 ## `config.get`
 
