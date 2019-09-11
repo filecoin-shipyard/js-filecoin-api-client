@@ -527,6 +527,9 @@ console.log(storageDeal)
   "proofInfo":
     {
       "sectorID": 1,
+      "CommD":"mkgOa7RCAYNHgUqsWmNR0MjAkzNMZM46ZPPuLonPsDk=",
+      "CommR":"gMGjsTgYFeXSFq3Vaqf2Nm2rhMV/nJ17nmZEPMeCs1I=",
+      "CommRStar":"87+U6/0jhvfBtauei+LG//bDpsNqlRa9Yguv+VSPHAE=",
       "commitmentMessage": "zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R",
       "pieceInclusionProof":  "EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
     },
