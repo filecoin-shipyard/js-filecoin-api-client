@@ -10,22 +10,22 @@ test('should list the storage deal info for a particular cid', async t => {
 
   const res = await fc.client.queryStorageDeal(cid)
 
-  const responseProofInfo = Fixtures['ProofInfo']
+  const responseProofInfo = Fixtures.ProofInfo
 
   const proofInfo = {
-    sectorID: responseProofInfo['SectorID'],
-    commitmentMessage: responseProofInfo['CommitmentMessage']['/'],
-    commD: responseProofInfo['CommD'],
-    commR: responseProofInfo['CommR'],
-    commRStar: responseProofInfo['CommRStar'],
-    pieceInclusionProof: responseProofInfo['PieceInclusionProof']
+    sectorID: responseProofInfo.SectorID,
+    commitmentMessage: responseProofInfo.CommitmentMessage['/'],
+    commD: responseProofInfo.CommD,
+    commR: responseProofInfo.CommR,
+    commRStar: responseProofInfo.CommRStar,
+    pieceInclusionProof: responseProofInfo.PieceInclusionProof
   }
 
   t.deepEqual(res, {
     state: 7,
     message: '',
-    proposalCid: Fixtures['ProposalCid']['/'],
+    proposalCid: Fixtures.ProposalCid['/'],
     proofInfo: proofInfo,
-    signature: Fixtures['Signature']
+    signature: Fixtures.Signature
   })
 })
