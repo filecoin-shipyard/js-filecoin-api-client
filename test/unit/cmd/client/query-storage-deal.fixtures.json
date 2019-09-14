@@ -3,16 +3,19 @@
   "Message":"",
   "ProposalCid":
     {
-      "/":"zDPWYqFD8CNXu7Mo9qPSUANbTK2vi9vJBnvavF9S1pVGPHafVHpT"
+      "/":"bafy2bzaceargn5lm5l6imiact6sktr5xl3fkgdga3lamchl6x6rdj36aeeaiq"
     },
   "ProofInfo":
     {
       "SectorID":1,
+      "CommD":"mkgOa7RCAYNHgUqsWmNR0MjAkzNMZM46ZPPuLonPsDk=",
+      "CommR":"gMGjsTgYFeXSFq3Vaqf2Nm2rhMV/nJ17nmZEPMeCs1I=",
+      "CommRStar":"87+U6/0jhvfBtauei+LG//bDpsNqlRa9Yguv+VSPHAE=",
       "CommitmentMessage":
         {
-          "/":"zDPWYqFCtHkWNkE2p6t6TeV1sPP5kbnKc5ajUhMVV8xvrw1u5F1R"
+          "/":"bafy2bzaceaueo3rf4dzvc3fxjdio3zc3vedb2phcidk5c3rp3wsnm7jxfrgfg"
         },
-      "PieceInclusionProof":"EiAbbOy4pChsCYqFYA6qJaUJYStlnwYMdQPHZX7YBkVXDD6vgmGTPnWrcdA9M0oAXQCzOq735YKySLUoTI6pAw=="
+      "PieceInclusionProof":"EAAAAAAAAADmCRBjqxNVP7Z0RG7pdnulR4TrA6M8BbnqV9dn35ojaw=="
     },
   "Signature":"c2lnbmF0dXJycmVlZQ=="
 }
