@@ -29,7 +29,7 @@
     "ava": "^2.2.0",
     "cids": "^0.7.1",
     "ipfs-unixfs": "^0.1.16",
-    "multiaddr": "^6.1.0",
+    "multiaddr": "^7.1.0",
     "nyc": "^14.1.1",
     "standard": "^14.1.0",
     "webpack": "^4.39.1",
