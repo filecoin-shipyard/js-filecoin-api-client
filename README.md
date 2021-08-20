@@ -1,5 +1,11 @@
 # filecoin-api-client
 
+## Status
+
+This repository is in a **frozen** state. It is not being maintained or kept in sync with the libraries it depends on. This library was designed for an early version of _go-filecoin_, which is now known as [Venus](https://venus.filecoin.io/). An API client for Lotus can be found at https://github.com/filecoin-shipyard/js-lotus-client-rpc. Even though this work on this repository has been **shelved**, anyone interested in updating or maintaining this library should express their interest on one Filecoin community conversation mediums: <https://github.com/filecoin-project/community#join-the-community>.
+
+---
+
 [![CircleCI branch](https://img.shields.io/circleci/project/github/filecoin-shipyard/js-filecoin-api-client/master.svg)](https://circleci.com/gh/filecoin-shipyard/js-filecoin-api-client)
 [![dependencies Status](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client/status.svg)](https://david-dm.org/filecoin-shipyard/js-filecoin-api-client)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
